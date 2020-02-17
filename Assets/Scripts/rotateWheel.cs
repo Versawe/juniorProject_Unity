@@ -14,7 +14,7 @@ public class rotateWheel : MonoBehaviour
 
     private bool touchedDown = false;
     public Transform wheel;
-    private float turnLimit = 0;
+    public static float turnLimit = 0;
 
     private bool firstTap = false;
     private bool secondTap = false;
@@ -26,13 +26,13 @@ public class rotateWheel : MonoBehaviour
     void Start()
     {
         rectTrans = GetComponent<RectTransform>();
+        turnLimit = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-
         if (heldDown)
         {
             if (Input.touchCount >= 1)
@@ -95,11 +95,12 @@ public class rotateWheel : MonoBehaviour
         if (secondTap)
         {
             //stuff happens here
-            //TheObject.GetComponent().localposition = new Vector3 (1.0f, 2.0f, 0.0f)
-            print(secondTap);
+            rectTrans.localRotation = new Quaternion(0,0,0,0);
+            turnLimit = 0;
+            //print(secondTap);
         }
 
-        //print(quickTapTimer);
+        print(initialTouch);
     }
 
 

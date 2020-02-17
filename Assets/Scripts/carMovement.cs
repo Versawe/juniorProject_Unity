@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class carMovement : MonoBehaviour
+{
+    private float speed = 0;
+    private float maxSpeed = 450;
+    private bool movingForward = false;
+    Rigidbody rb;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (movingForward)
+        {
+            speed += 100 * Time.deltaTime;
+        }
+        if (!movingForward)
+        {
+            speed += -20 * Time.deltaTime;
+        }
+        if (speed <= 0)
+        {
+            speed = 0;
+        }
+        if (speed >= maxSpeed)
+        {
+            speed = maxSpeed;
+        }
+
+        rb.velocity = transform.forward * speed * Time.deltaTime;
+
+        //print(speed);
+    }
+
+    public void OnGasDown()
+    {
+        movingForward = true;
+    }
+
+    public void OnGasUp()
+    {
+        movingForward = false;
+    }
+}
