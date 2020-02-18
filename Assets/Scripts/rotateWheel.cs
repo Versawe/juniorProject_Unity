@@ -32,10 +32,23 @@ public class rotateWheel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Prints number of fingers touching the screen
+        /*int fingerCount = 0;
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+            {
+                fingerCount++;
+            }
+        }*/
+
+        //print("User has " + fingerCount + " finger(s) touching the screen");
+        //print(Input.touches);
+
+
         if (heldDown)
         {
-            if (Input.touchCount >= 1)
+            if (Input.touchCount > 0 && Input.touchCount < 2) 
             {
 
                 Touch touch = Input.GetTouch(0);
@@ -50,7 +63,7 @@ public class rotateWheel : MonoBehaviour
 
 
             }
-            if (Input.touchCount < 1)
+            if (Input.touchCount == 0)
             {
                 touchedDown = false;
                 initialTouch = new Vector2(0, 0);
@@ -100,7 +113,7 @@ public class rotateWheel : MonoBehaviour
             //print(secondTap);
         }
 
-        print(initialTouch);
+        //print(initialTouch);
     }
 
 

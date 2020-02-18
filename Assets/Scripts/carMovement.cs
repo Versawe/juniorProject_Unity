@@ -6,11 +6,12 @@ public class carMovement : MonoBehaviour
 {
     private float speed = 0;
     private float maxSpeed = 450;
-    private bool movingForward = false;
+    public static bool movingForward = false;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        movingForward = false;
         rb = GetComponent<Rigidbody>();
     }
 
