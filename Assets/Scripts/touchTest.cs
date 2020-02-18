@@ -26,7 +26,7 @@ public class touchTest : MonoBehaviour
     void Update()
     {
 
-        if (Input.touchCount == 1)
+        if (Input.touchCount > 0)
         {
 
             Touch touch = Input.GetTouch(0);

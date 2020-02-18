@@ -9,16 +9,18 @@ public class rotateWheel : MonoBehaviour
 {
     public bool heldDown = false;
 
-    Vector2 initialTouch;
+    Vector2 initialTouch = new Vector2(0.15f,0.2f);
     Vector2 touchPosition;
 
-    private bool touchedDown = false;
+    //private bool touchedDown = false;
     public Transform wheel;
     public static float turnLimit = 0;
 
     private bool firstTap = false;
     private bool secondTap = false;
     private float quickTapTimer = 0;
+
+    public static bool touchedFirstWheel = false;
 
     public RectTransform rectTrans;
 
@@ -48,35 +50,45 @@ public class rotateWheel : MonoBehaviour
 
         if (heldDown)
         {
-            if (Input.touchCount > 0 && Input.touchCount < 2) 
+            Touch touch = Input.GetTouch(0);
+            if (!carMovement.touchedFirstGas)
             {
-
-                Touch touch = Input.GetTouch(0);
-
-                if (!touchedDown)
-                {
-                    initialTouch = Camera.main.ScreenToViewportPoint(touch.position);
-                }
-                touchedDown = true;
+                /*if (!touchedDown)
+                  {
+                      initialTouch = Camera.main.ScreenToViewportPoint(touch.position);
+                  }*/
+                //touchedDown = true;
 
                 touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
-
             }
-            if (Input.touchCount == 0)
+            if (carMovement.touchedFirstGas)
+            {
+                touch = Input.GetTouch(1);
+
+                /*if (!touchedDown)
+                {
+                    initialTouch = Camera.main.ScreenToViewportPoint(touch.position);
+                }*/
+                //touchedDown = true;
+                touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
+            }
+            
+            
+            /*if (Input.touchCount == 0)
             {
                 touchedDown = false;
                 initialTouch = new Vector2(0, 0);
                 touchPosition = new Vector2(0, 0);
-            }
+            }*/
 
 
-            if (touchPosition.x > initialTouch.x && turnLimit >= -2.75)
+            if (touchPosition.x > initialTouch.x && turnLimit >= -2.5)
             {
                 transform.Rotate(0, 0, -150 * Time.deltaTime);
                 turnLimit += -1 * Time.deltaTime;
             }
-            if (touchPosition.x < initialTouch.x && turnLimit <= 2.75)
+            if (touchPosition.x < initialTouch.x && turnLimit <= 2.5)
             {
                 transform.Rotate(0, 0, 150 * Time.deltaTime);
                 turnLimit += 1 * Time.deltaTime;
@@ -99,12 +111,6 @@ public class rotateWheel : MonoBehaviour
 
         }
 
-        if (Input.touchCount <= 0)
-        {
-            heldDown = false;
-            secondTap = false;
-        }
-
         if (secondTap)
         {
             //stuff happens here
@@ -113,7 +119,7 @@ public class rotateWheel : MonoBehaviour
             //print(secondTap);
         }
 
-        //print(initialTouch);
+        print(touchPosition.x);
     }
 
 
@@ -133,6 +139,15 @@ public class rotateWheel : MonoBehaviour
                 firstTap = true;
             }
         }  
+    }
+
+    public void OnTouchExit()
+    {
+        heldDown = false;
+        secondTap = false;
+        //touchedDown = false;
+        //initialTouch = new Vector2(0, 0);
+        touchPosition = new Vector2(0, 0);
     }
 
    

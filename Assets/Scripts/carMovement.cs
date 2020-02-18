@@ -7,6 +7,8 @@ public class carMovement : MonoBehaviour
     private float speed = 0;
     private float maxSpeed = 450;
     public static bool movingForward = false;
+    public static bool touchedFirstGas = false;
+
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -38,16 +40,25 @@ public class carMovement : MonoBehaviour
 
         rb.velocity = transform.forward * speed * Time.deltaTime;
 
-        //print(speed);
+        //print(touchedFirstGas);
     }
 
     public void OnGasDown()
     {
         movingForward = true;
+        if (Input.touchCount == 1)
+        {
+            touchedFirstGas = true;
+        }
+        if (Input.touchCount == 2)
+        {
+            touchedFirstGas = false;
+        }
     }
 
     public void OnGasUp()
     {
         movingForward = false;
+        touchedFirstGas = false;
     }
 }
