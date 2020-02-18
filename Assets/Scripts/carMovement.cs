@@ -40,6 +40,15 @@ public class carMovement : MonoBehaviour
 
         rb.velocity = transform.forward * speed * Time.deltaTime;
 
+        if (rotateWheel.turnLimit <= -2.5f)
+        {
+
+        }
+        if (rotateWheel.turnLimit >= 2.5f)
+        {
+
+        }
+
         //print(touchedFirstGas);
     }
 
