@@ -9,10 +9,9 @@ public class rotateWheel : MonoBehaviour
 {
     public bool heldDown = false;
 
-    Vector2 initialTouch = new Vector2(0.15f,0.2f);
+    Vector2 initialTouch = new Vector2(0.2f,0.0f);
     Vector2 touchPosition;
 
-    //private bool touchedDown = false;
     public Transform wheel;
     public static float turnLimit = 0;
 
@@ -20,11 +19,9 @@ public class rotateWheel : MonoBehaviour
     private bool secondTap = false;
     private float quickTapTimer = 0;
 
-    private bool turningRight = false;
-
-    private bool turningLeft = false;
 
     public RectTransform rectTrans;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,37 +34,29 @@ public class rotateWheel : MonoBehaviour
     void Update()
     {
 
-
         if (heldDown)
         {
-            Touch touch = Input.GetTouch(0);
-            if(!carMovement.touchedFirstGas)
+            foreach (Touch touch in Input.touches)
             {
-                touch = Input.GetTouch(0);
-                touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
-            }
-            if(carMovement.touchedFirstGas)
-            {
-                touch = Input.GetTouch(1);
-                touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
-            }
-            
+                if (touch.position.x < Screen.width/2)
+                {
+                    touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
-            if (touchPosition.x > initialTouch.x && turnLimit >= -2.5)
-            {
-                transform.Rotate(0, 0, -150 * Time.deltaTime);
-                turnLimit += -1 * Time.deltaTime;
-                turningRight = true;
-                turningLeft = false;
+                    if (touchPosition.x > initialTouch.x && turnLimit <= 1.5)
+                    {
+                        transform.Rotate(0, 0, -185 * Time.deltaTime);
+                        turnLimit += 1 * Time.deltaTime;
+                    }
+                    if (touchPosition.x < initialTouch.x && turnLimit >= -1.5)
+                    {
+                        transform.Rotate(0, 0, 185 * Time.deltaTime);
+                        turnLimit += -1 * Time.deltaTime;
+                    }
+                }
+                
             }
-            if (touchPosition.x < initialTouch.x && turnLimit <= 2.5)
-            {
-                transform.Rotate(0, 0, 150 * Time.deltaTime);
-                turnLimit += 1 * Time.deltaTime;
-                turningLeft = true;
-                turningRight = false;
-            }
+
         }
 
         if (quickTapTimer > 0)
@@ -93,8 +82,8 @@ public class rotateWheel : MonoBehaviour
             turnLimit = 0;
         }
 
-        print("We are Turning Left " + turningLeft);
-        print("We are Turning Right " + turningRight);
+        //print(touchPosition);
+        
     }
 
 
@@ -113,7 +102,7 @@ public class rotateWheel : MonoBehaviour
             {
                 firstTap = true;
             }
-        }  
+        }
     }
 
     public void OnTouchExit()
@@ -121,12 +110,6 @@ public class rotateWheel : MonoBehaviour
         heldDown = false;
         secondTap = false;
         touchPosition = new Vector2(0, 0);
-    }
-
-    public void OnTouchRelease()
-    {
-        turningRight = false;
-        turningLeft = false;
     }
 
    

@@ -5,9 +5,10 @@ using UnityEngine;
 public class carMovement : MonoBehaviour
 {
     private float speed = 0;
-    private float maxSpeed = 450;
+    private float maxSpeed = 390;
     public static bool movingForward = false;
-    public static bool touchedFirstGas = false;
+
+    Vector2 touchPoint;
 
     Rigidbody rb;
     // Start is called before the first frame update
@@ -21,14 +22,8 @@ public class carMovement : MonoBehaviour
     void Update()
     {
 
-        if (movingForward)
-        {
-            speed += 100 * Time.deltaTime;
-        }
-        if (!movingForward)
-        {
-            speed += -20 * Time.deltaTime;
-        }
+        Physics.IgnoreLayerCollision(8,9);
+
         if (speed <= 0)
         {
             speed = 0;
@@ -37,37 +32,47 @@ public class carMovement : MonoBehaviour
         {
             speed = maxSpeed;
         }
+        if (movingForward)
+        {
+            speed += 85 * Time.deltaTime;
+        }
+        if (!movingForward && speed > 0)
+        {
+            speed += -30 * Time.deltaTime;
+        }
 
         rb.velocity = transform.forward * speed * Time.deltaTime;
 
-        if (rotateWheel.turnLimit <= -2.5f)
+        if (speed > 0)
         {
-
-        }
-        if (rotateWheel.turnLimit >= 2.5f)
-        {
-
+            transform.Rotate(0, rotateWheel.turnLimit * 20 * Time.deltaTime, 0);
         }
 
-        //print(touchedFirstGas);
+        foreach (Touch touch in Input.touches)
+        {
+
+            if (touch.position.x >= Screen.width/2)
+            {
+                
+                touchPoint = Camera.main.ScreenToViewportPoint(touch.position);
+
+            }
+            if (touch.position.x < Screen.width / 2)
+            {
+                movingForward = false;
+            }
+
+        }
+
     }
 
     public void OnGasDown()
     {
         movingForward = true;
-        if (Input.touchCount == 1)
-        {
-            touchedFirstGas = true;
-        }
-        if (Input.touchCount == 2)
-        {
-            touchedFirstGas = false;
-        }
     }
 
     public void OnGasUp()
     {
         movingForward = false;
-        touchedFirstGas = false;
     }
 }

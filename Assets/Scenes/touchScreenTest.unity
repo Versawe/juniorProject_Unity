@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 24147846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.32353073, y: 2.0015445, z: 249.9}
-  m_LocalScale: {x: 24.13243, y: 0.20484, z: 565.87744}
+  m_LocalScale: {x: 38.52262, y: 0.20484, z: 565.87744}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 144386112}
   - component: {fileID: 144386111}
   - component: {fileID: 144386110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,10 +342,10 @@ RectTransform:
   m_Father: {fileID: 893883486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.06831578, y: 0.063}
-  m_AnchorMax: {x: 0.22084211, y: 0.41200003}
-  m_AnchoredPosition: {x: 1.5, y: 4.5999756}
-  m_SizeDelta: {x: -4, y: -9.9}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.28411993, y: 0.45000002}
+  m_AnchoredPosition: {x: 66, y: 17.195}
+  m_SizeDelta: {x: -301, y: -110.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &237408107
 MonoBehaviour:
@@ -396,21 +396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 237408110}
-          m_MethodName: OnTouchDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 3
     callback:
       m_PersistentCalls:
@@ -426,12 +411,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 1
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 237408110}
-          m_MethodName: OnTouchRelease
+          m_MethodName: OnTouchDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -470,7 +455,7 @@ GameObject:
   - component: {fileID: 670575415}
   - component: {fileID: 670575419}
   - component: {fileID: 670575420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: carBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670575414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.120080754, y: 2.19, z: -7.357544}
+  m_LocalPosition: {x: 0.120080754, y: 2.233, z: -7.357544}
   m_LocalScale: {x: 1.0936, y: 0.17095602, z: 1.701}
   m_Children:
   - {fileID: 963194228}
@@ -560,13 +545,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670575414}
   serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 5
-  m_AngularDrag: 0.1
-  m_UseGravity: 0
+  m_Mass: 100
+  m_Drag: 10
+  m_AngularDrag: 10
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &670575420
 MonoBehaviour:
@@ -684,7 +669,7 @@ GameObject:
   - component: {fileID: 771337300}
   - component: {fileID: 771337299}
   - component: {fileID: 771337298}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +762,7 @@ GameObject:
   - component: {fileID: 892904119}
   - component: {fileID: 892904118}
   - component: {fileID: 892904117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +954,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1053,7 +1038,7 @@ GameObject:
   - component: {fileID: 1043880901}
   - component: {fileID: 1043880900}
   - component: {fileID: 1043880899}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1212,7 +1197,7 @@ GameObject:
   - component: {fileID: 1161655225}
   - component: {fileID: 1161655224}
   - component: {fileID: 1161655223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1305,7 +1290,7 @@ GameObject:
   - component: {fileID: 1561764156}
   - component: {fileID: 1561764155}
   - component: {fileID: 1561764154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1504,7 +1489,7 @@ GameObject:
   - component: {fileID: 1659440699}
   - component: {fileID: 1659440698}
   - component: {fileID: 1659440697}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1597,7 +1582,7 @@ GameObject:
   - component: {fileID: 1672733064}
   - component: {fileID: 1672733063}
   - component: {fileID: 1672733062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1690,7 +1675,7 @@ GameObject:
   - component: {fileID: 1746628844}
   - component: {fileID: 1746628843}
   - component: {fileID: 1746628842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1810,7 @@ GameObject:
   - component: {fileID: 1862559117}
   - component: {fileID: 1862559116}
   - component: {fileID: 1862559115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1918,7 +1903,7 @@ GameObject:
   - component: {fileID: 2027036246}
   - component: {fileID: 2027036245}
   - component: {fileID: 2027036244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,10 +2017,10 @@ RectTransform:
   m_Father: {fileID: 893883486}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.855, y: 0.074}
-  m_AnchorMax: {x: 0.9164178, y: 0.41200003}
-  m_AnchoredPosition: {x: -1, y: -0.79797363}
-  m_SizeDelta: {x: -2.6999998, y: 1.1150017}
+  m_AnchorMin: {x: 0.8126799, y: 0}
+  m_AnchorMax: {x: 1, y: 0.531}
+  m_AnchoredPosition: {x: -31.800049, y: 11.51001}
+  m_SizeDelta: {x: -217, y: -122.26999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058296220
 MonoBehaviour:
@@ -2128,7 +2113,7 @@ GameObject:
   - component: {fileID: 2122510585}
   - component: {fileID: 2122510584}
   - component: {fileID: 2122510583}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
