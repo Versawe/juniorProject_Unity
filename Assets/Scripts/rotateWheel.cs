@@ -9,7 +9,7 @@ public class rotateWheel : MonoBehaviour
 {
     public bool heldDown = false;
 
-    Vector2 initialTouch = new Vector2(0.2f,0.0f);
+    Vector2 centerPoint = new Vector2(0,0);
     Vector2 touchPosition;
 
     public Transform wheel;
@@ -28,6 +28,7 @@ public class rotateWheel : MonoBehaviour
     {
         rectTrans = GetComponent<RectTransform>();
         turnLimit = 0;
+        centerPoint = Camera.main.ScreenToViewportPoint(wheel.position);
     }
 
     // Update is called once per frame
@@ -43,14 +44,14 @@ public class rotateWheel : MonoBehaviour
                 {
                     touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
-                    if (touchPosition.x > initialTouch.x && turnLimit <= 1.5)
+                    if (touchPosition.x > centerPoint.x && turnLimit <= 1.5)
                     {
-                        transform.Rotate(0, 0, -185 * Time.deltaTime);
+                        transform.Rotate(0, 0, -175 * Time.deltaTime);
                         turnLimit += 1 * Time.deltaTime;
                     }
-                    if (touchPosition.x < initialTouch.x && turnLimit >= -1.5)
+                    if (touchPosition.x < centerPoint.x && turnLimit >= -1.5)
                     {
-                        transform.Rotate(0, 0, 185 * Time.deltaTime);
+                        transform.Rotate(0, 0, 175 * Time.deltaTime);
                         turnLimit += -1 * Time.deltaTime;
                     }
                 }
@@ -82,7 +83,8 @@ public class rotateWheel : MonoBehaviour
             turnLimit = 0;
         }
 
-        //print(touchPosition);
+        //print("tp " + touchPosition);
+        //print("cp " + centerPoint);
         
     }
 

@@ -34,11 +34,11 @@ public class carMovement : MonoBehaviour
         }
         if (movingForward)
         {
-            speed += 85 * Time.deltaTime;
+            speed += 125 * Time.deltaTime;
         }
         if (!movingForward && speed > 0)
         {
-            speed += -30 * Time.deltaTime;
+            speed += -50 * Time.deltaTime;
         }
 
         rb.velocity = transform.forward * speed * Time.deltaTime;
@@ -51,16 +51,16 @@ public class carMovement : MonoBehaviour
         foreach (Touch touch in Input.touches)
         {
 
-            if (touch.position.x >= Screen.width/2)
+            if (touch.position.x > Screen.width/2)
             {
                 
                 touchPoint = Camera.main.ScreenToViewportPoint(touch.position);
 
             }
-            if (touch.position.x < Screen.width / 2)
+            /*if (touch.position.x < Screen.width / 2)
             {
                 movingForward = false;
-            }
+            }*/
 
         }
 
