@@ -46,12 +46,12 @@ public class rotateWheel : MonoBehaviour
 
                     if (touchPosition.x > centerPoint.x && turnLimit <= 1.5)
                     {
-                        transform.Rotate(0, 0, -175 * Time.deltaTime);
+                        transform.Rotate(0, 0, -178 * Time.deltaTime);
                         turnLimit += 1 * Time.deltaTime;
                     }
                     if (touchPosition.x < centerPoint.x && turnLimit >= -1.5)
                     {
-                        transform.Rotate(0, 0, 175 * Time.deltaTime);
+                        transform.Rotate(0, 0, 178 * Time.deltaTime);
                         turnLimit += -1 * Time.deltaTime;
                     }
                 }
