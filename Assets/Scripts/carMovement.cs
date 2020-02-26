@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class carMovement : MonoBehaviour
 {
-    private float speed = 0;
+    public static float speed = 0;
+    public static float reverseSpeed = 0;
+    private float reverseMaxSpeed = 100;
     private float maxSpeed = 390;
-    public static bool movingForward = false;
-    public static bool brakePressing = false;
+    public bool movingForward = false;
+    public bool movingBackwards = false;
+    public bool brakePressing = false;
 
     Vector2 touchPoint;
 
@@ -16,6 +19,8 @@ public class carMovement : MonoBehaviour
     void Start()
     {
         movingForward = false;
+        speed = 0;
+        reverseSpeed = 0;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -33,7 +38,7 @@ public class carMovement : MonoBehaviour
         {
             speed = maxSpeed;
         }
-        if (movingForward)
+        if (movingForward && !gearShifterScript.inPark && !gearShifterScript.inReverse)
         {
             speed += 128 * Time.deltaTime;
         }
@@ -42,16 +47,44 @@ public class carMovement : MonoBehaviour
             speed += -58 * Time.deltaTime;
         }
 
-        if (brakePressing)
+        if (reverseSpeed <= 0)
+        {
+            reverseSpeed = 0;
+        }
+        if (reverseSpeed >= reverseMaxSpeed)
+        {
+            reverseSpeed = reverseMaxSpeed;
+        }
+        if (movingBackwards && !gearShifterScript.inPark && !gearShifterScript.inDrive)
+        {
+            reverseSpeed += 80 * Time.deltaTime;
+        }
+        if (!movingBackwards && reverseSpeed > 0)
+        {
+            reverseSpeed += -58 * Time.deltaTime;
+        }
+
+        if (brakePressing && !gearShifterScript.inPark && !gearShifterScript.inReverse)
         {
             speed += -108 * Time.deltaTime;
         }
 
-        rb.velocity = transform.forward * speed * Time.deltaTime;
+        if (gearShifterScript.inDrive)
+        {
+            rb.velocity = transform.forward * speed * Time.deltaTime;
+        }
+        if (gearShifterScript.inReverse)
+        {
+            rb.velocity = -transform.forward * reverseSpeed * Time.deltaTime;
+        }
 
         if (speed > 0)
         {
             transform.Rotate(0, rotateWheel.turnLimit * 23 * Time.deltaTime, 0);
+        }
+        if (reverseSpeed > 0)
+        {
+            transform.Rotate(0, -rotateWheel.turnLimit * 23 * Time.deltaTime, 0);
         }
 
         foreach (Touch touch in Input.touches)
@@ -70,12 +103,27 @@ public class carMovement : MonoBehaviour
 
     public void OnGasDown()
     {
-        movingForward = true;
+        if (gearShifterScript.inDrive)
+        {
+            movingForward = true;
+            movingBackwards = false;
+        }
+        if (gearShifterScript.inReverse)
+        {
+            movingBackwards = true;
+            movingForward = false;
+        }
+        if (gearShifterScript.inPark)
+        {
+            movingBackwards = false;
+            movingForward = false;
+        }
     }
 
     public void OnGasUp()
     {
         movingForward = false;
+        movingBackwards = false;
     }
 
     public void OnBrakeDown()
