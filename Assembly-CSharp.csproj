@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\carMovement.cs" />
     <Compile Include="Assets\Scripts\gearShifterScript.cs" />
     <Compile Include="Assets\Scripts\rotateWheel.cs" />
+    <Compile Include="Assets\Scripts\trackPlayer.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/ericv/OneDrive/Documents/school/JuniorProject/junior_REPO/juniorProject_Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
