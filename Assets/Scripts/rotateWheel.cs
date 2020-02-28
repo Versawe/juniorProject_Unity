@@ -7,18 +7,16 @@ public class rotateWheel : MonoBehaviour
 {
     public bool heldDown = false;
 
-    Vector2 centerPoint = new Vector2(0,0);
+    Vector2 centerPoint = new Vector2(0, 0);
     Vector2 touchPosition;
 
     public Transform wheel;
     public static float turnLimit = 0;
 
-    private bool firstTap = false;
-    private bool secondTap = false;
-    private float quickTapTimer = 0;
-
 
     public RectTransform rectTrans;
+
+    private bool back2Start = false;
 
 
     // Start is called before the first frame update
@@ -38,7 +36,7 @@ public class rotateWheel : MonoBehaviour
             foreach (Touch touch in Input.touches)
             {
 
-                if (touch.position.x < Screen.width/2)
+                if (touch.position.x < Screen.width / 2)
                 {
                     touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
@@ -53,37 +51,27 @@ public class rotateWheel : MonoBehaviour
                         turnLimit += -1 * Time.deltaTime;
                     }
                 }
-                
+
             }
 
         }
 
-        if (quickTapTimer > 0)
+        if (back2Start && turnLimit > 0 + 0.15f)
         {
-            quickTapTimer += 1 * Time.deltaTime;
+            transform.Rotate(0, 0, 178 * Time.deltaTime);
+            turnLimit += -1 * Time.deltaTime;
         }
-        if (quickTapTimer == 0)
+        if (back2Start && turnLimit < 0 + -0.15f)
         {
-            firstTap = false;
+            transform.Rotate(0, 0, -178 * Time.deltaTime);
+            turnLimit += 1 * Time.deltaTime;
         }
-        if (quickTapTimer >= 0.3f)
+        if (back2Start && turnLimit < 0 + 0.15f && turnLimit > 0 + -0.15f)
         {
-            firstTap = false;
-            secondTap = false;
-            quickTapTimer = 0;
-
-        }
-
-        if (secondTap)
-        {
-            //stuff happens here
-            rectTrans.localRotation = new Quaternion(0,0,0,0);
+            rectTrans.localRotation = new Quaternion(0, 0, 0, 0);
             turnLimit = 0;
         }
-
-        //print("tp " + touchPosition);
-        //print("cp " + centerPoint);
-        
+        //print(turnLimit);
     }
 
 
@@ -91,26 +79,19 @@ public class rotateWheel : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            quickTapTimer += 0.1f * Time.deltaTime;
-
             heldDown = true;
-            if (quickTapTimer > 0 && quickTapTimer < 0.3f && firstTap)
-            {
-                secondTap = true;
-            }
-            if (quickTapTimer > 0 && quickTapTimer < 0.2f)
-            {
-                firstTap = true;
-            }
         }
+
+        back2Start = false;
     }
 
     public void OnTouchExit()
     {
         heldDown = false;
-        secondTap = false;
         touchPosition = new Vector2(0, 0);
+        back2Start = true;
     }
 
-   
+
 }
+
