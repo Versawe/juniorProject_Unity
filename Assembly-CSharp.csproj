@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\randomSpawn.cs" />
     <Compile Include="Assets\Scripts\safteyFeature.cs" />
     <Compile Include="Assets\Scripts\trackPlayer.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\carMovement.cs" />
