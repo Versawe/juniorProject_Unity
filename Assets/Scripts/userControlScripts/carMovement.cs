@@ -7,7 +7,7 @@ public class carMovement : MonoBehaviour
     public static float speed = 0;
     public static float reverseSpeed = 0;
     private float reverseMaxSpeed = 100;
-    private float maxSpeed = 390; //for expressWay = ?
+    private float maxSpeed = 390; //for expressWay = 800
     public bool movingForward = false;
     public bool movingBackwards = false;
     public bool brakePressing = false;

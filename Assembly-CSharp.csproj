@@ -62,9 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\randomSpawn.cs" />
-    <Compile Include="Assets\Scripts\safteyFeature.cs" />
-    <Compile Include="Assets\Scripts\trackPlayer.cs" />
+    <Compile Include="Assets\Scripts\AI\randomSpawn.cs" />
+    <Compile Include="Assets\Scripts\AI\superCruiseCar.cs" />
+    <Compile Include="Assets\Scripts\enviornment\safteyFeature.cs" />
+    <Compile Include="Assets\Scripts\enviornment\trackPlayer.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\carMovement.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\gearShifterScript.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\rotateWheel.cs" />
