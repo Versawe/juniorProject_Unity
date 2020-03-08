@@ -7,7 +7,7 @@ public class carMovement : MonoBehaviour
     public static float speed = 0;
     public static float reverseSpeed = 0;
     private float reverseMaxSpeed = 100;
-    private float maxSpeed = 400; //for expressWay = 760
+    private float maxSpeed = 450; //for expressWay = 900
     public bool movingForward = false;
     public bool movingBackwards = false;
     public bool brakePressing = false;
@@ -25,7 +25,7 @@ public class carMovement : MonoBehaviour
 
         if (safteyFeature.isSuperCruise)
         {
-            maxSpeed = 760;
+            maxSpeed = 900;
         }
     }
 
@@ -45,11 +45,11 @@ public class carMovement : MonoBehaviour
         }
         if (movingForward && !gearShifterScript.inPark && !gearShifterScript.inReverse)
         {
-            speed += 110 * Time.deltaTime;
+            speed += 135 * Time.deltaTime;
         }
         if (!movingForward && speed > 0)
         {
-            speed += -50 * Time.deltaTime;
+            speed += -75 * Time.deltaTime;
         }
 
         if (reverseSpeed <= 0)
@@ -62,7 +62,7 @@ public class carMovement : MonoBehaviour
         }
         if (movingBackwards && !gearShifterScript.inPark && !gearShifterScript.inDrive)
         {
-            reverseSpeed += 80 * Time.deltaTime;
+            reverseSpeed += 90 * Time.deltaTime;
         }
         if (!movingBackwards && reverseSpeed > 0)
         {
@@ -71,7 +71,7 @@ public class carMovement : MonoBehaviour
 
         if (brakePressing && !gearShifterScript.inPark && !gearShifterScript.inReverse)
         {
-            speed += -95 * Time.deltaTime;
+            speed += -110 * Time.deltaTime;
         }
 
         if (gearShifterScript.inDrive)

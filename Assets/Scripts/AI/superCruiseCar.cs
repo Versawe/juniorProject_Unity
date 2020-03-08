@@ -12,6 +12,8 @@ public class superCruiseCar : MonoBehaviour
 
     Rigidbody rb;
 
+    public bool carNear = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class superCruiseCar : MonoBehaviour
         }
 
         speed = Random.Range(490, 620);
+
     }
 
     // Update is called once per frame
@@ -39,9 +42,9 @@ public class superCruiseCar : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (playerCar.transform.position.x < + thisCar.position.x + 4.5f && playerCar.transform.position.x > thisCar.position.x - 4.5f)
+        if (playerCar.transform.position.x < + thisCar.position.x + 4.7f && playerCar.transform.position.x > thisCar.position.x - 4.7f)
         {
-            if (playerCar.transform.position.z < +thisCar.position.z + 1 && playerCar.transform.position.z > thisCar.position.z - 1)
+            if (playerCar.transform.position.z < +thisCar.position.z + 1.2f && playerCar.transform.position.z > thisCar.position.z - 1.2f)
             {
                 print("bruh");
             }
