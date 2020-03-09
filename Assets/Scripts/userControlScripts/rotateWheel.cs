@@ -18,6 +18,12 @@ public class rotateWheel : MonoBehaviour
 
     private bool back2Start = false;
 
+    public static bool superRightTurn = false;
+
+    public static bool superLeftTurn = false;
+
+    private float superCTimer = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,9 @@ public class rotateWheel : MonoBehaviour
         rectTrans = GetComponent<RectTransform>();
         turnLimit = 0;
         centerPoint = Camera.main.ScreenToViewportPoint(wheel.position);
+
+        superLeftTurn = false;
+        superRightTurn = false;
     }
 
     // Update is called once per frame
@@ -71,7 +80,16 @@ public class rotateWheel : MonoBehaviour
             rectTrans.localRotation = new Quaternion(0, 0, 0, 0);
             turnLimit = 0;
         }
-        //print(turnLimit);
+
+        if (superLeftTurn || superRightTurn)
+        {
+            superCTimer += 1 * Time.deltaTime;
+            //LEFT OFF HERE
+        }
+
+        print("Right " + superRightTurn);
+
+        print("Left " + superLeftTurn);
     }
 
 
@@ -91,7 +109,6 @@ public class rotateWheel : MonoBehaviour
         touchPosition = new Vector2(0, 0);
         back2Start = true;
     }
-
 
 }
 

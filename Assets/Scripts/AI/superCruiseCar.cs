@@ -12,7 +12,6 @@ public class superCruiseCar : MonoBehaviour
 
     Rigidbody rb;
 
-    public bool carNear = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +23,14 @@ public class superCruiseCar : MonoBehaviour
             playerCar = GameObject.Find("carBox");
         }
 
-        speed = Random.Range(490, 620);
+        speed = Random.Range(490, 590);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.forward * speed * Time.deltaTime;
+        //rb.velocity = transform.forward * speed * Time.deltaTime;
 
         if (playerCar.transform.position.z > thisCar.position.z + 400)
         {
@@ -42,13 +41,26 @@ public class superCruiseCar : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (playerCar.transform.position.x < + thisCar.position.x + 4.7f && playerCar.transform.position.x > thisCar.position.x - 4.7f)
+        if (playerCar.transform.position.x < + thisCar.position.x + 1.8f && playerCar.transform.position.x > thisCar.position.x - 1.8f)
         {
-            if (playerCar.transform.position.z < +thisCar.position.z + 1.2f && playerCar.transform.position.z > thisCar.position.z - 1.2f)
+            if (playerCar.transform.position.z < +thisCar.position.z + 1.8f && playerCar.transform.position.z > thisCar.position.z - 1.8f)
             {
-                print("bruh");
+                if (playerCar.transform.position.x > thisCar.position.x)
+                {
+                    //print("bruh RIGHT");
+                    rotateWheel.superRightTurn = true;
+                    //rotateWheel.superLeftTurn = false;
+                }
+                if (playerCar.transform.position.x < thisCar.position.x)
+                {
+                    //print("bruh LEFT");
+                    //rotateWheel.superRightTurn = false;
+                    rotateWheel.superLeftTurn = true;
+                }
             }
-            
+
         }
+
     }
+
 }
