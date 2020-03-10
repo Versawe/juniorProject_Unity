@@ -21,7 +21,7 @@ public class randomSpawn : MonoBehaviour
             playerCar = GameObject.Find("carBox");
         }
 
-        willSpawnNum = Random.Range(0,5);
+        willSpawnNum = Random.Range(3,5);
     }
 
     // Update is called once per frame

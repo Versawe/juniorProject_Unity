@@ -18,11 +18,11 @@ public class rotateWheel : MonoBehaviour
 
     private bool back2Start = false;
 
-    public static bool superRightTurn = false;
+    public static bool laneRightTurn = false;
 
-    public static bool superLeftTurn = false;
+    public static bool laneLeftTurn = false;
 
-    private float superCTimer = 0;
+    private float laneCTimer = 0;
 
 
     // Start is called before the first frame update
@@ -30,17 +30,19 @@ public class rotateWheel : MonoBehaviour
     {
         rectTrans = GetComponent<RectTransform>();
         turnLimit = 0;
+
+        //this finds the center vector2 position of the steering wheel for touch input
         centerPoint = Camera.main.ScreenToViewportPoint(wheel.position);
 
-        superLeftTurn = false;
-        superRightTurn = false;
+        laneLeftTurn = false;
+        laneRightTurn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (heldDown)
+        //if you hold down on wheel the touch input is read only on the left side of the screen
+        if (heldDown && laneCTimer <= 0)
         {
             foreach (Touch touch in Input.touches)
             {
@@ -49,6 +51,7 @@ public class rotateWheel : MonoBehaviour
                 {
                     touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
+                    //steers the wheel based on finger location compared to center point of wheel
                     if (touchPosition.x > centerPoint.x && turnLimit <= 1.5)
                     {
                         transform.Rotate(0, 0, -178 * Time.deltaTime);
@@ -65,36 +68,61 @@ public class rotateWheel : MonoBehaviour
 
         }
 
-        if (back2Start && turnLimit > 0 + 0.15f)
+        //wheel turning back to center position when user doesn't hold down on it
+        if (laneCTimer <= 0)
         {
-            transform.Rotate(0, 0, 178 * Time.deltaTime);
-            turnLimit += -1 * Time.deltaTime;
+            if (back2Start && turnLimit > 0 + 0.15f)
+            {
+                transform.Rotate(0, 0, 178 * Time.deltaTime);
+                turnLimit += -1 * Time.deltaTime;
+            }
+            if (back2Start && turnLimit < 0 + -0.15f)
+            {
+                transform.Rotate(0, 0, -178 * Time.deltaTime);
+                turnLimit += 1 * Time.deltaTime;
+            }
+            if (back2Start && turnLimit < 0 + 0.15f && turnLimit > 0 + -0.15f)
+            {
+                rectTrans.localRotation = new Quaternion(0, 0, 0, 0);
+                turnLimit = 0;
+            }
         }
-        if (back2Start && turnLimit < 0 + -0.15f)
+        
+
+        // this is for the lane change feature and triggers depending on which side of the car you are on
+        if (laneLeftTurn || laneRightTurn)
         {
-            transform.Rotate(0, 0, -178 * Time.deltaTime);
-            turnLimit += 1 * Time.deltaTime;
+            laneCTimer += 1 * Time.deltaTime;
         }
-        if (back2Start && turnLimit < 0 + 0.15f && turnLimit > 0 + -0.15f)
+        if (laneCTimer >= 0.5f)
         {
+            laneLeftTurn = false;
+            laneRightTurn = false;
+            laneCTimer = 0;
             rectTrans.localRotation = new Quaternion(0, 0, 0, 0);
             turnLimit = 0;
         }
 
-        if (superLeftTurn || superRightTurn)
+        //making car turn with lane change
+        if (laneLeftTurn)
         {
-            superCTimer += 1 * Time.deltaTime;
-            //LEFT OFF HERE
+            transform.Rotate(0, 0, 278 * Time.deltaTime);
+            turnLimit += -4f * Time.deltaTime;
+        }
+        if (laneRightTurn)
+        {
+            transform.Rotate(0, 0, -278 * Time.deltaTime);
+            turnLimit += 4f * Time.deltaTime;
         }
 
-        print("Right " + superRightTurn);
+        //print(turnLimit);
 
-        print("Left " + superLeftTurn);
     }
 
 
     public void OnTouchDown()
     {
+        //run if you are hold down on wheel
         if (Input.touchCount > 0)
         {
             heldDown = true;
@@ -105,6 +133,7 @@ public class rotateWheel : MonoBehaviour
 
     public void OnTouchExit()
     {
+        //run if you release from wheel
         heldDown = false;
         touchPosition = new Vector2(0, 0);
         back2Start = true;

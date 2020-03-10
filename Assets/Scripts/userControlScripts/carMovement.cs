@@ -23,6 +23,7 @@ public class carMovement : MonoBehaviour
         reverseSpeed = 0;
         rb = GetComponent<Rigidbody>();
 
+        //changes max speed based on level
         if (safteyFeature.isSuperCruise)
         {
             maxSpeed = 900;
@@ -35,6 +36,7 @@ public class carMovement : MonoBehaviour
 
         Physics.IgnoreLayerCollision(8,9);
 
+        // speed/acceleration mechanic
         if (speed <= 0)
         {
             speed = 0;
@@ -52,6 +54,7 @@ public class carMovement : MonoBehaviour
             speed += -75 * Time.deltaTime;
         }
 
+        //reverse speed mechanic
         if (reverseSpeed <= 0)
         {
             reverseSpeed = 0;
@@ -69,11 +72,13 @@ public class carMovement : MonoBehaviour
             reverseSpeed += -58 * Time.deltaTime;
         }
 
-        if (brakePressing && !gearShifterScript.inPark && !gearShifterScript.inReverse)
+        // braking mechanic
+        if (brakePressing && !gearShifterScript.inPark && !gearShifterScript.inReverse && speed > 0)
         {
             speed += -110 * Time.deltaTime;
         }
 
+        //determines which direction user moves on reverse vs drive
         if (gearShifterScript.inDrive)
         {
             rb.velocity = transform.forward * speed * Time.deltaTime;
@@ -83,6 +88,7 @@ public class carMovement : MonoBehaviour
             rb.velocity = -transform.forward * reverseSpeed * Time.deltaTime;
         }
 
+        //rotates car only if moving forward (like real car)
         if (speed > 0)
         {
             transform.Rotate(0, rotateWheel.turnLimit * 23 * Time.deltaTime, 0);
@@ -92,6 +98,7 @@ public class carMovement : MonoBehaviour
             transform.Rotate(0, -rotateWheel.turnLimit * 23 * Time.deltaTime, 0);
         }
 
+        //reads touch input only on right side of the screen (to not pay attention to wheel input)
         foreach (Touch touch in Input.touches)
         {
 
@@ -104,11 +111,21 @@ public class carMovement : MonoBehaviour
 
         }
 
+        /*if (rotateWheel.laneLeftTurn)
+        {
+            transform.Rotate(0, rotateWheel.turnLimit * 2 * Time.deltaTime, 0);
+        }
+        if (rotateWheel.laneRightTurn)
+        {
+            transform.Rotate(0, rotateWheel.turnLimit * 2 * Time.deltaTime, 0);
+        }*/
+
         //print(speed);
     }
 
     public void OnGasDown()
     {
+        //run if holding gas pedal
         if (gearShifterScript.inDrive)
         {
             movingForward = true;
@@ -128,17 +145,20 @@ public class carMovement : MonoBehaviour
 
     public void OnGasUp()
     {
+        //run if release from gas pedal
         movingForward = false;
         movingBackwards = false;
     }
 
     public void OnBrakeDown()
     {
+        //run if holding brake pedal
         brakePressing = true;
     }
 
     public void OnBrakeUp()
     {
+        //run if release from brake pedal
         brakePressing = false;
     }
 }
