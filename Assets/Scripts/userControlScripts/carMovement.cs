@@ -45,11 +45,11 @@ public class carMovement : MonoBehaviour
         {
             speed = maxSpeed;
         }
-        if (movingForward && !gearShifterScript.inPark && !gearShifterScript.inReverse)
+        if (movingForward && !gearShifterScript.inPark && !gearShifterScript.inReverse && !superCruise.superCruiseActive)
         {
             speed += 135 * Time.deltaTime;
         }
-        if (!movingForward && speed > 0)
+        if (!movingForward && speed > 0 && !superCruise.superCruiseActive)
         {
             speed += -75 * Time.deltaTime;
         }

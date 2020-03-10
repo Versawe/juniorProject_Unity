@@ -47,7 +47,7 @@ public class rotateWheel : MonoBehaviour
             foreach (Touch touch in Input.touches)
             {
 
-                if (touch.position.x < Screen.width / 2)
+                if (touch.position.x < Screen.width / 2 && !superCruise.superCruiseActive)
                 {
                     touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
@@ -94,7 +94,7 @@ public class rotateWheel : MonoBehaviour
         {
             laneCTimer += 1 * Time.deltaTime;
         }
-        if (laneCTimer >= 0.5f)
+        if (laneCTimer >= 0.2f) //was 0.5f
         {
             laneLeftTurn = false;
             laneRightTurn = false;
@@ -106,13 +106,31 @@ public class rotateWheel : MonoBehaviour
         //making car turn with lane change
         if (laneLeftTurn)
         {
-            transform.Rotate(0, 0, 278 * Time.deltaTime);
-            turnLimit += -4f * Time.deltaTime;
+            if (superCruise.superCruiseActive)
+            {
+                transform.Rotate(0, 0, 200 * Time.deltaTime);
+                turnLimit += -1.5f * Time.deltaTime;
+            }
+            if (!superCruise.superCruiseActive)
+            {
+                transform.Rotate(0, 0, 278 * Time.deltaTime);
+                turnLimit += -4f * Time.deltaTime;
+            }
+            
         }
         if (laneRightTurn)
         {
-            transform.Rotate(0, 0, -278 * Time.deltaTime);
-            turnLimit += 4f * Time.deltaTime;
+            if (superCruise.superCruiseActive)
+            {
+                transform.Rotate(0, 0, -200 * Time.deltaTime);
+                turnLimit += 1.5f * Time.deltaTime;
+            }
+            if (!superCruise.superCruiseActive)
+            {
+                transform.Rotate(0, 0, -278 * Time.deltaTime);
+                turnLimit += 4f * Time.deltaTime;
+            }
+            
         }
 
         //print(turnLimit);
