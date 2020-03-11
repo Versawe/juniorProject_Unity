@@ -96,13 +96,21 @@ public class rotateWheel : MonoBehaviour
         {
             laneCTimer += 1 * Time.deltaTime;
         }
-        if (laneCTimer >= 0.2f) //was 0.5f
+        if (laneCTimer >= 0.5f) //was 0.5f (might need to be longer)
         {
+            if (laneLeftTurn)
+            {
+                carBody.transform.rotation = Quaternion.Euler(0, -1f,0);
+            }
+            if (laneRightTurn)
+            {
+                carBody.transform.rotation = Quaternion.Euler(0, 1f, 0);
+            }
+
             laneLeftTurn = false;
             laneRightTurn = false;
             rectTrans.localRotation = new Quaternion(0, 0, 0, 0);
             turnLimit = 0;
-            carBody.transform.Rotate(0,0,0);
             laneCTimer = 0;
         }
 
@@ -112,7 +120,7 @@ public class rotateWheel : MonoBehaviour
             if (superCruise.superCruiseActive)
             {
                 transform.Rotate(0, 0, 150 * Time.deltaTime);
-                turnLimit += -0.25f * Time.deltaTime;
+                turnLimit += -.5f * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {
@@ -126,7 +134,7 @@ public class rotateWheel : MonoBehaviour
             if (superCruise.superCruiseActive)
             {
                 transform.Rotate(0, 0, -150 * Time.deltaTime);
-                turnLimit += 0.25f * Time.deltaTime;
+                turnLimit += .5f * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {

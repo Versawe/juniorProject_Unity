@@ -111,15 +111,6 @@ public class carMovement : MonoBehaviour
 
         }
 
-        /*if (rotateWheel.laneLeftTurn)
-        {
-            transform.Rotate(0, rotateWheel.turnLimit * 2 * Time.deltaTime, 0);
-        }
-        if (rotateWheel.laneRightTurn)
-        {
-            transform.Rotate(0, rotateWheel.turnLimit * 2 * Time.deltaTime, 0);
-        }*/
-
         //print(speed);
     }
 
