@@ -21,7 +21,7 @@ public class laneTracking : MonoBehaviour
     {
         if (superCruise.superCruiseActive)
         {
-            if (playerCar.transform.position.x < +thisLane.position.x + 1f && playerCar.transform.position.x > thisLane.position.x -1f)
+            if (playerCar.transform.position.x < +thisLane.position.x + 1.3f && playerCar.transform.position.x > thisLane.position.x -1.5f) //was both 1.5
             {
                 if (playerCar.transform.position.x > thisLane.position.x)
                 {

@@ -24,7 +24,7 @@ public class superCruise : MonoBehaviour
 
     public void clickSC()
     {
-        if (carMovement.speed >= 700)
+        if (carMovement.speed >= 700)   
         {
             switch (sc)
             {

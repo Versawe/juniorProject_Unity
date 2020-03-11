@@ -26,7 +26,7 @@ public class carMovement : MonoBehaviour
         //changes max speed based on level
         if (safteyFeature.isSuperCruise)
         {
-            maxSpeed = 900;
+            maxSpeed = 850;
         }
     }
 

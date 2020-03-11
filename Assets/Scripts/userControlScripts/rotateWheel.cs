@@ -14,7 +14,7 @@ public class rotateWheel : MonoBehaviour
     public static float turnLimit = 0;
 
 
-    public RectTransform rectTrans;
+    RectTransform rectTrans;
 
     private bool back2Start = false;
 
@@ -23,6 +23,8 @@ public class rotateWheel : MonoBehaviour
     public static bool laneLeftTurn = false;
 
     private float laneCTimer = 0;
+
+    public GameObject carBody;
 
 
     // Start is called before the first frame update
@@ -98,9 +100,10 @@ public class rotateWheel : MonoBehaviour
         {
             laneLeftTurn = false;
             laneRightTurn = false;
-            laneCTimer = 0;
             rectTrans.localRotation = new Quaternion(0, 0, 0, 0);
             turnLimit = 0;
+            carBody.transform.Rotate(0,0,0);
+            laneCTimer = 0;
         }
 
         //making car turn with lane change
@@ -108,8 +111,8 @@ public class rotateWheel : MonoBehaviour
         {
             if (superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, 200 * Time.deltaTime);
-                turnLimit += -1.5f * Time.deltaTime;
+                transform.Rotate(0, 0, 150 * Time.deltaTime);
+                turnLimit += -0.25f * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {
@@ -122,8 +125,8 @@ public class rotateWheel : MonoBehaviour
         {
             if (superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, -200 * Time.deltaTime);
-                turnLimit += 1.5f * Time.deltaTime;
+                transform.Rotate(0, 0, -150 * Time.deltaTime);
+                turnLimit += 0.25f * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {

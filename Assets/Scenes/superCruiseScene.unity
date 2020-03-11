@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heldDown: 0
   wheel: {fileID: 237408106}
-  rectTrans: {fileID: 0}
+  carBody: {fileID: 670575414}
 --- !u!1 &541450510
 GameObject:
   m_ObjectHideFlags: 0
