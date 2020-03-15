@@ -26,6 +26,14 @@ public class rotateWheel : MonoBehaviour
 
     public GameObject carBody;
 
+    private bool isSuperCruiseLeft = false;
+
+    private bool isSuperCruiseRight = false;
+
+    private float easeTimer = 0;
+
+    private float rotateNum;
+
 
     // Start is called before the first frame update
     void Start()
@@ -100,11 +108,13 @@ public class rotateWheel : MonoBehaviour
         {
             if (laneLeftTurn)
             {
-                carBody.transform.rotation = Quaternion.Euler(0, -1f,0);
+                isSuperCruiseLeft = true;
+                //carBody.transform.rotation = Quaternion.Euler(0, -1f,0);
             }
             if (laneRightTurn)
             {
-                carBody.transform.rotation = Quaternion.Euler(0, 1f, 0);
+                isSuperCruiseRight = true;
+                //carBody.transform.rotation = Quaternion.Euler(0, 1f, 0);
             }
 
             laneLeftTurn = false;
@@ -114,13 +124,37 @@ public class rotateWheel : MonoBehaviour
             laneCTimer = 0;
         }
 
+        if (isSuperCruiseLeft || isSuperCruiseRight)
+        {
+            easeTimer += 0.25f * Time.deltaTime;
+        }
+        if (easeTimer >= 1)
+        {
+            easeTimer = 0;
+            isSuperCruiseLeft = false;
+            isSuperCruiseRight = false;
+        }
+        if (isSuperCruiseLeft)
+        {
+            rotateNum = carBody.transform.eulerAngles.y;
+            rotateNum += -0.5f * Time.deltaTime;
+            carBody.transform.rotation = Quaternion.Euler(0, rotateNum, 0);
+        }
+
+        if (isSuperCruiseRight)
+        {
+            rotateNum = carBody.transform.eulerAngles.y;
+            rotateNum += 0.5f * Time.deltaTime;
+            carBody.transform.rotation = Quaternion.Euler(0, rotateNum, 0);
+        }
+
         //making car turn with lane change
         if (laneLeftTurn)
         {
             if (superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, 150 * Time.deltaTime);
-                turnLimit += -.5f * Time.deltaTime;
+                transform.Rotate(0, 0, 125 * Time.deltaTime);
+                turnLimit += -.15f * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {
@@ -133,8 +167,8 @@ public class rotateWheel : MonoBehaviour
         {
             if (superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, -150 * Time.deltaTime);
-                turnLimit += .5f * Time.deltaTime;
+                transform.Rotate(0, 0, -125 * Time.deltaTime);
+                turnLimit += .15f * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {
@@ -144,7 +178,7 @@ public class rotateWheel : MonoBehaviour
             
         }
 
-        //print(turnLimit);
+        //print(rotateNum);
 
     }
 
