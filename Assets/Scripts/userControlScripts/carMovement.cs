@@ -65,11 +65,11 @@ public class carMovement : MonoBehaviour
         }
         if (movingBackwards && !gearShifterScript.inPark && !gearShifterScript.inDrive)
         {
-            reverseSpeed += 90 * Time.deltaTime;
+            reverseSpeed += 105 * Time.deltaTime;
         }
         if (!movingBackwards && reverseSpeed > 0)
         {
-            reverseSpeed += -58 * Time.deltaTime;
+            reverseSpeed += -75 * Time.deltaTime;
         }
 
         // braking mechanic

@@ -137,14 +137,14 @@ public class rotateWheel : MonoBehaviour
         if (isSuperCruiseLeft)
         {
             rotateNum = carBody.transform.eulerAngles.y;
-            rotateNum += -0.5f * Time.deltaTime;
+            rotateNum += -0.2f * Time.deltaTime;
             carBody.transform.rotation = Quaternion.Euler(0, rotateNum, 0);
         }
 
         if (isSuperCruiseRight)
         {
             rotateNum = carBody.transform.eulerAngles.y;
-            rotateNum += 0.5f * Time.deltaTime;
+            rotateNum += 0.2f * Time.deltaTime;
             carBody.transform.rotation = Quaternion.Euler(0, rotateNum, 0);
         }
 
@@ -153,8 +153,8 @@ public class rotateWheel : MonoBehaviour
         {
             if (superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, 125 * Time.deltaTime);
-                turnLimit += -.15f * Time.deltaTime;
+                transform.Rotate(0, 0, 115 * Time.deltaTime);
+                turnLimit += -.1f * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {
@@ -167,8 +167,8 @@ public class rotateWheel : MonoBehaviour
         {
             if (superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, -125 * Time.deltaTime);
-                turnLimit += .15f * Time.deltaTime;
+                transform.Rotate(0, 0, -115 * Time.deltaTime);
+                turnLimit += .1f * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {

@@ -28,7 +28,7 @@ public class laneTracking : MonoBehaviour
 
         if (superCruise.superCruiseActive)
         {
-            if (playerCar.transform.position.x < thisLane.position.x + 1f && playerCar.transform.position.x > thisLane.position.x -1f) //was both 1.5
+            if (playerCar.transform.position.x < thisLane.position.x + 1.52f && playerCar.transform.position.x > thisLane.position.x -1.22f) //was both 1.5
             {
                 if (playerCar.transform.position.x > thisLane.position.x)
                 {
@@ -50,24 +50,24 @@ public class laneTracking : MonoBehaviour
         {
             if(thisLane.gameObject.name == "shoulder1")
             {
-                playerCar.transform.Rotate(0,-1.75f,0);
+                playerCar.transform.Rotate(0,-0.75f,0);
                 //print("shoudler1");
             }
             if (thisLane.gameObject.name == "shoulder2")
             {
-                playerCar.transform.Rotate(0, 1.75f, 0);
+                playerCar.transform.Rotate(0, 0.75f, 0);
                 //print("shoudler2");
             }
             if (thisLane.gameObject.name == "lane")
             {
                 if (playerCar.transform.position.x > thisLane.position.x)
                 {
-                    playerCar.transform.Rotate(0, -1.75f, 0);
+                    playerCar.transform.Rotate(0, -0.75f, 0);
                     //print("right of middle lane");
                 }
                 if (playerCar.transform.position.x < thisLane.position.x)
                 {
-                    playerCar.transform.Rotate(0, 1.75f, 0);
+                    playerCar.transform.Rotate(0, 0.75f, 0);
                     //print("left of middle lane");
 
                 }

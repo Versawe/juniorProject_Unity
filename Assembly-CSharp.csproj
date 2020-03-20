@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\userControlScripts\carMovement.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\gearShifterScript.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\rotateWheel.cs" />
+    <Compile Include="Assets\cameraSwitch.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/ericv/OneDrive/Documents/school/JuniorProject/junior_REPO/juniorProject_Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
