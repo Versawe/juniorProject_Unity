@@ -6,6 +6,7 @@ TagManager:
   tags:
   - shoudler1
   - shoudler2
+  - AI
   layers:
   - Default
   - TransparentFX

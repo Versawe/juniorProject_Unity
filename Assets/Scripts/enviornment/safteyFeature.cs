@@ -9,6 +9,8 @@ public class safteyFeature : MonoBehaviour
 
     private string sceneName;
     public static bool isSuperCruise = false;
+    public static bool autoRearBrakeTrigger = false;
+    public static bool crossTrafficTrigger = false;
 
 
     void Awake()
@@ -21,6 +23,18 @@ public class safteyFeature : MonoBehaviour
             isSuperCruise = true;
         }
         else isSuperCruise = false;
+
+        if (sceneName == "crossTrafficAlert")
+        {
+            crossTrafficTrigger = true;
+        }
+        else crossTrafficTrigger = false;
+
+        if (sceneName == "autoRearBrake")
+        {
+            autoRearBrakeTrigger = true;
+        }
+        else autoRearBrakeTrigger = false;
     }
 
 }

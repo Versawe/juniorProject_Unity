@@ -65,13 +65,14 @@
     <Compile Include="Assets\Scripts\AI\laneChangeCar.cs" />
     <Compile Include="Assets\Scripts\AI\randomSpawn.cs" />
     <Compile Include="Assets\Scripts\enviornment\laneTracking.cs" />
+    <Compile Include="Assets\Scripts\enviornment\rearTrigger.cs" />
     <Compile Include="Assets\Scripts\enviornment\safteyFeature.cs" />
     <Compile Include="Assets\Scripts\enviornment\superCruise.cs" />
     <Compile Include="Assets\Scripts\enviornment\trackPlayer.cs" />
+    <Compile Include="Assets\Scripts\userControlScripts\cameraSwitch.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\carMovement.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\gearShifterScript.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\rotateWheel.cs" />
-    <Compile Include="Assets\cameraSwitch.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/ericv/OneDrive/Documents/school/JuniorProject/junior_REPO/juniorProject_Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
