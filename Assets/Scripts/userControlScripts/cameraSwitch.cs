@@ -17,7 +17,8 @@ public class cameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gearShifterScript.inReverse && gearShifterScript.inDrive) reverseCamOn = false;
+        if (gearShifterScript.inPark) reverseCamOn = false;
+        if (gearShifterScript.inDrive) reverseCamOn = false;
 
         if (gearShifterScript.inReverse && !gearShifterScript.inDrive) reverseCamOn = true;
 
