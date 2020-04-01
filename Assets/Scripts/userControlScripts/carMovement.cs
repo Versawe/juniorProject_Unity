@@ -7,7 +7,7 @@ public class carMovement : MonoBehaviour
     public static float speed = 0;
     public static float reverseSpeed = 0;
     private float reverseMaxSpeed = 100;
-    private float maxSpeed = 450; //for expressWay = 900
+    private float maxSpeed = 1550; //for expressWay = 900
     public bool movingForward = false;
     public bool movingBackwards = false;
     public bool brakePressing = false;
@@ -26,7 +26,7 @@ public class carMovement : MonoBehaviour
         //changes max speed based on level
         if (safteyFeature.isSuperCruise)
         {
-            maxSpeed = 850;
+            maxSpeed = 2500;
         }
     }
 
@@ -47,11 +47,11 @@ public class carMovement : MonoBehaviour
         }
         if (movingForward && !gearShifterScript.inPark && !gearShifterScript.inReverse && !superCruise.superCruiseActive)
         {
-            speed += 135 * Time.deltaTime;
+            speed += 325 * Time.deltaTime;
         }
         if (!movingForward && speed > 0 && !superCruise.superCruiseActive)
         {
-            speed += -75 * Time.deltaTime;
+            speed += -175 * Time.deltaTime;
         }
 
         //reverse speed mechanic
@@ -65,17 +65,17 @@ public class carMovement : MonoBehaviour
         }
         if (movingBackwards && !gearShifterScript.inPark && !gearShifterScript.inDrive)
         {
-            reverseSpeed += 105 * Time.deltaTime;
+            reverseSpeed += 225 * Time.deltaTime;
         }
         if (!movingBackwards && reverseSpeed > 0)
         {
-            reverseSpeed += -75 * Time.deltaTime;
+            reverseSpeed += -175 * Time.deltaTime;
         }
 
         // braking mechanic
         if (brakePressing && !gearShifterScript.inPark && !gearShifterScript.inReverse && speed > 0)
         {
-            speed += -110 * Time.deltaTime;
+            speed += -200 * Time.deltaTime;
         }
 
         //determines which direction user moves on reverse vs drive
