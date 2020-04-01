@@ -12,6 +12,7 @@ public class rotateWheel : MonoBehaviour
 
     public Transform wheel;
     public static float turnLimit = 0;
+    public GameObject driversWheel;
 
 
     RectTransform rectTrans;
@@ -65,17 +66,33 @@ public class rotateWheel : MonoBehaviour
                     if (touchPosition.x > centerPoint.x && turnLimit <= 1.5)
                     {
                         transform.Rotate(0, 0, -178 * Time.deltaTime);
+                        driversWheel.transform.Rotate(0,0, 178 * Time.deltaTime);
                         turnLimit += 1 * Time.deltaTime;
                     }
                     if (touchPosition.x < centerPoint.x && turnLimit >= -1.5)
                     {
                         transform.Rotate(0, 0, 178 * Time.deltaTime);
+                        driversWheel.transform.Rotate(0, 0, -178 * Time.deltaTime);
                         turnLimit += -1 * Time.deltaTime;
                     }
                 }
 
             }
 
+        }
+
+        if(Input.GetKeyDown("d"))
+        {
+            transform.Rotate(0, 0, -100 * Time.deltaTime);
+            driversWheel.transform.Rotate(0, 0, 100 * Time.deltaTime);
+            turnLimit += 1 * Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown("a"))
+        {
+            transform.Rotate(0, 0, 100 * Time.deltaTime);
+            driversWheel.transform.Rotate(0, 0, -100 * Time.deltaTime);
+            turnLimit += -1 * Time.deltaTime;
         }
 
         //wheel turning back to center position when user doesn't hold down on it
