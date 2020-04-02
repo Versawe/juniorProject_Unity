@@ -5,7 +5,7 @@ using UnityEngine;
 public class trackPlayer : MonoBehaviour
     // This script has the envoirment track te player so it will spawn another block
 {
-    GameObject player;
+    public GameObject player;
 
     public Transform thisObject;
 
