@@ -30,7 +30,6 @@ public class trackPlayer : MonoBehaviour
         {
             player = GameObject.Find("carBox");
         }
-
     }
 
     // Update is called once per frame
