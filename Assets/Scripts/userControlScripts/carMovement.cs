@@ -6,11 +6,14 @@ public class carMovement : MonoBehaviour
 {
     public static float speed = 0;
     public static float reverseSpeed = 0;
-    private float reverseMaxSpeed = 100;
+    private float reverseMaxSpeed = 500;
     private float maxSpeed = 1550; //for expressWay = 900
     public bool movingForward = false;
     public bool movingBackwards = false;
     public bool brakePressing = false;
+
+    public static float carRotationX;
+    public static float carRotationY;
 
     Vector2 touchPoint;
 
@@ -47,7 +50,7 @@ public class carMovement : MonoBehaviour
         }
         if (movingForward && !gearShifterScript.inPark && !gearShifterScript.inReverse && !superCruise.superCruiseActive)
         {
-            speed += 325 * Time.deltaTime;
+            speed += 425 * Time.deltaTime;
         }
         if (!movingForward && speed > 0 && !superCruise.superCruiseActive)
         {
@@ -65,7 +68,7 @@ public class carMovement : MonoBehaviour
         }
         if (movingBackwards && !gearShifterScript.inPark && !gearShifterScript.inDrive)
         {
-            reverseSpeed += 225 * Time.deltaTime;
+            reverseSpeed += 425 * Time.deltaTime;
         }
         if (!movingBackwards && reverseSpeed > 0)
         {
@@ -75,7 +78,7 @@ public class carMovement : MonoBehaviour
         // braking mechanic
         if (brakePressing && !gearShifterScript.inPark && !gearShifterScript.inReverse && speed > 0)
         {
-            speed += -200 * Time.deltaTime;
+            speed += -600 * Time.deltaTime;
         }
 
         //determines which direction user moves on reverse vs drive
@@ -110,6 +113,9 @@ public class carMovement : MonoBehaviour
             }
 
         }
+
+        carRotationX = transform.localEulerAngles.x;
+        carRotationY = transform.localEulerAngles.y;
 
         //print(speed);
     }

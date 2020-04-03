@@ -15,9 +15,9 @@ public class laneTracking : MonoBehaviour
     {
         bc = GetComponent<BoxCollider>();
 
-        if (GameObject.Find("carBox"))
+        if (GameObject.Find("carPrefab"))
         {
-            playerCar = GameObject.Find("carBox");
+            playerCar = GameObject.Find("carPrefab");
         }
     }
 
@@ -28,7 +28,7 @@ public class laneTracking : MonoBehaviour
 
         if (superCruise.superCruiseActive)
         {
-            if (playerCar.transform.position.x < thisLane.position.x + 1.52f && playerCar.transform.position.x > thisLane.position.x -1.22f) //was both 1.5
+            if (playerCar.transform.position.x < thisLane.position.x + 2f && playerCar.transform.position.x > thisLane.position.x -2f) //was both 1.5
             {
                 if (playerCar.transform.position.x > thisLane.position.x)
                 {
@@ -72,7 +72,35 @@ public class laneTracking : MonoBehaviour
 
                 }
             }
-            
+            if (thisLane.gameObject.name == "lane2")
+            {
+                if (playerCar.transform.position.x > thisLane.position.x)
+                {
+                    playerCar.transform.Rotate(0, -0.75f, 0);
+                    //print("right of middle lane");
+                }
+                if (playerCar.transform.position.x < thisLane.position.x)
+                {
+                    playerCar.transform.Rotate(0, 0.75f, 0);
+                    //print("left of middle lane");
+
+                }
+            }
+            if (thisLane.gameObject.name == "lane3")
+            {
+                if (playerCar.transform.position.x > thisLane.position.x)
+                {
+                    playerCar.transform.Rotate(0, -0.75f, 0);
+                    //print("right of middle lane");
+                }
+                if (playerCar.transform.position.x < thisLane.position.x)
+                {
+                    playerCar.transform.Rotate(0, 0.75f, 0);
+                    //print("left of middle lane");
+
+                }
+            }
+
         }
     }
 }
