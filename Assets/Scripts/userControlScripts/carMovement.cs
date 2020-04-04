@@ -10,10 +10,8 @@ public class carMovement : MonoBehaviour
     private float maxSpeed = 1550; //for expressWay = 900
     public bool movingForward = false;
     public bool movingBackwards = false;
-    public bool brakePressing = false;
+    public static bool brakePressing = false;
 
-    public static float carRotationX;
-    public static float carRotationY;
 
     Vector2 touchPoint;
 
@@ -22,6 +20,7 @@ public class carMovement : MonoBehaviour
     void Start()
     {
         movingForward = false;
+        brakePressing = false;
         speed = 0;
         reverseSpeed = 0;
         rb = GetComponent<Rigidbody>();
@@ -80,6 +79,10 @@ public class carMovement : MonoBehaviour
         {
             speed += -600 * Time.deltaTime;
         }
+        if (brakePressing && !gearShifterScript.inPark && !gearShifterScript.inDrive && reverseSpeed > 0)
+        {
+            reverseSpeed += -800 * Time.deltaTime;
+        }
 
         //determines which direction user moves on reverse vs drive
         if (gearShifterScript.inDrive)
@@ -114,10 +117,6 @@ public class carMovement : MonoBehaviour
 
         }
 
-        carRotationX = transform.localEulerAngles.x;
-        carRotationY = transform.localEulerAngles.y;
-
-        //print(speed);
     }
 
     public void OnGasDown()

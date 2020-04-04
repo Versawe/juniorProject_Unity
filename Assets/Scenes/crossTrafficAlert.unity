@@ -8138,7 +8138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingForward: 0
   movingBackwards: 0
-  brakePressing: 0
 --- !u!33 &2612979233320434852
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8210,7 +8209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2612979233320434859}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 12.92, y: 0.85, z: -27.66}
+  m_LocalPosition: {x: 12.78, y: 0.85, z: -27.66}
   m_LocalScale: {x: 1, y: 1, z: 4}
   m_Children:
   - {fileID: 2612979232809712361}
@@ -8270,6 +8269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed296d5da77354458c58c6d5cfc6181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCar: {fileID: 2612979233320434859}
 --- !u!65 &2612979233320434861
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8281,8 +8281,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 4.960161, y: 1.39, z: 0.35955623}
-  m_Center: {x: 0.10501051, y: 0.17000002, z: -0.90477806}
+  m_Size: {x: 5.014919, y: 1.39, z: 0.4324794}
+  m_Center: {x: 0.07763147, y: 0.17000002, z: -0.94123966}
 --- !u!114 &2612979233320434862
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -200,7 +200,7 @@ public class rotateWheel : MonoBehaviour
         rotationValue = transform.localEulerAngles.z;
 
         //driversWheel.rotation = Quaternion.Euler(-24f, 180f, -rotationValue);
-        driversWheel.rotation = Quaternion.Euler(carMovement.carRotationX - 20f, -carMovement.carRotationY + 180f, -rotationValue);
+        driversWheel.rotation = Quaternion.Euler(-24f, 180f, -rotationValue);
 
         //print(transform.rotation.z);
 
