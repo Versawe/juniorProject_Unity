@@ -85,16 +85,16 @@ public class rotateWheel : MonoBehaviour
 
         if(Input.GetKeyDown("d"))
         {
-            transform.Rotate(0, 0, -400 * Time.deltaTime);
+            transform.Rotate(0, 0, -178*4 * Time.deltaTime);
             //driversWheel.transform.Rotate(0, 0, 100 * Time.deltaTime);
-            turnLimit += 1 * Time.deltaTime;
+            turnLimit += 4 * Time.deltaTime;
         }
 
         if (Input.GetKeyDown("a"))
         {
-            transform.Rotate(0, 0, 400 * Time.deltaTime);
+            transform.Rotate(0, 0, 178*4 * Time.deltaTime);
             //driversWheel.transform.Rotate(0, 0, -100 * Time.deltaTime);
-            turnLimit += -1 * Time.deltaTime;
+            turnLimit += -4 * Time.deltaTime;
         }
 
         //wheel turning back to center position when user doesn't hold down on it
@@ -200,7 +200,7 @@ public class rotateWheel : MonoBehaviour
         rotationValue = transform.localEulerAngles.z;
 
         //driversWheel.rotation = Quaternion.Euler(-24f, 180f, -rotationValue);
-        driversWheel.rotation = Quaternion.Euler(-24f, 180f, -rotationValue);
+        driversWheel.rotation = Quaternion.Euler(-24f + carBody.transform.localEulerAngles.x, 180f + carBody.transform.localEulerAngles.y, -rotationValue);
 
         //print(transform.rotation.z);
 
