@@ -86,7 +86,7 @@ public class cameraSwitch : MonoBehaviour
         yRot = Transition(yRot, yRotTarget, 5);
         zRot = Transition(zRot, zRotTarget, 5);
 
-        print(xRot);
+        //print(xRot);
 
         cameraActual.transform.position = cameraCurrentLocation;
         cameraActual.transform.rotation = Quaternion.Euler(xRot, yRot, zRot);

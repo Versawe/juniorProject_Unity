@@ -56,7 +56,7 @@ public class rearTrigger : MonoBehaviour
             print("Left Alert");
         }
 
-        //print(isAlerting);
+        //print(safteyFeature.autoRearBrakeTrigger);
 
     }
 

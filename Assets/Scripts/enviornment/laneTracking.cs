@@ -15,9 +15,9 @@ public class laneTracking : MonoBehaviour
     {
         bc = GetComponent<BoxCollider>();
 
-        if (GameObject.Find("carPrefab"))
+        if (GameObject.Find("carPrefabCTA"))
         {
-            playerCar = GameObject.Find("carPrefab");
+            playerCar = GameObject.Find("carPrefabCTA");
         }
     }
 
