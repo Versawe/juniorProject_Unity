@@ -74,6 +74,8 @@
     <Compile Include="Assets\Scripts\userControlScripts\carMovement.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\gearShifterScript.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\rotateWheel.cs" />
+    <Compile Include="Assets\loadLevelScene.cs" />
+    <Compile Include="Assets\menuRotate.cs" />
     <None Include="Assets\Assets2\car\materials\darkSpots\DoubleSidedStandard.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Eric/Desktop/juniorProject_Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

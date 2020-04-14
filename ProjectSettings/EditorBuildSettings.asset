@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/mainMenu.unity
+    guid: 614a8f68fe4ec3b41914e29c48636b2a
+  - enabled: 1
+    path: Assets/Scenes/autoRearBrake.unity
+    guid: c1506aab54c558643a918eb075852047
+  - enabled: 1
+    path: Assets/Scenes/crossTrafficAlert.unity
+    guid: 8445d0fbbfbc5c0458beb72bd012a34f
+  - enabled: 1
+    path: Assets/Scenes/superCruiseScene.unity
+    guid: e6ce55e574a05ab4e91f9981b12ccf45
   m_configObjects: {}
