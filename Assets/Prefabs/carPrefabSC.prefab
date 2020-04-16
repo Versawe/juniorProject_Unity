@@ -6703,8 +6703,9 @@ GameObject:
   - component: {fileID: 3067585162622279228}
   - component: {fileID: 3067585162622279227}
   - component: {fileID: 3067585162622279226}
+  - component: {fileID: 5950331954979958312}
   m_Layer: 9
-  m_Name: carPrefab
+  m_Name: carPrefabSC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6816,7 +6817,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingForward: 0
   movingBackwards: 0
-  brakePressing: 0
 --- !u!1818360609 &3067585162622279226
 RotationConstraint:
   m_ObjectHideFlags: 0
@@ -6834,6 +6834,21 @@ RotationConstraint:
   m_IsContraintActive: 1
   m_IsLocked: 1
   m_Sources: []
+--- !u!114 &5950331954979958312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067585162622279217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb4b1db7d19cd640897cc8910013a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3067585162622279217}
+  newPrefabSpawn: {fileID: 0}
+  origin: {fileID: 0}
 --- !u!1 &3067585163132999798
 GameObject:
   m_ObjectHideFlags: 0

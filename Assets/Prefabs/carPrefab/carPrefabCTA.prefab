@@ -6656,6 +6656,7 @@ GameObject:
   - component: {fileID: 3286766466898796433}
   - component: {fileID: 3286766466898796445}
   - component: {fileID: 3286766466898796447}
+  - component: {fileID: 4794730862421152614}
   m_Layer: 9
   m_Name: carPrefabCTA
   m_TagString: Untagged
@@ -6832,6 +6833,21 @@ MonoBehaviour:
   cameraReverse: {fileID: 711527461542468455}
   cameraActual: {fileID: 3286766467210156509}
   screen: {fileID: 6439881229708014127}
+--- !u!114 &4794730862421152614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286766466898796442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb4b1db7d19cd640897cc8910013a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3286766466898796442}
+  newPrefabSpawn: {fileID: 0}
+  origin: {fileID: 0}
 --- !u!1 &3286766467210156509
 GameObject:
   m_ObjectHideFlags: 0

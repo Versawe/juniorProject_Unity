@@ -635,7 +635,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4941910232727782656}
   - component: {fileID: 4297509085613237223}
-  - component: {fileID: 8760291359267803752}
   - component: {fileID: 3258553869968915378}
   - component: {fileID: 2963751127245894303}
   m_Layer: 0
@@ -696,19 +695,6 @@ MonoBehaviour:
   spawnPoint: {fileID: 8819504572956708176}
   triggerSpawnPoint: {fileID: 9029194664756547989}
   triggerBoxCollider: {fileID: 1177131802444149026}
---- !u!65 &8760291359267803752
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4941910232727782657}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 41.5, y: 9.7467575, z: 1.0000014}
-  m_Center: {x: -0.013412408, y: 4.3733788, z: -41}
 --- !u!65 &3258553869968915378
 BoxCollider:
   m_ObjectHideFlags: 0

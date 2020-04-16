@@ -18,24 +18,28 @@ public class trackPlayer : MonoBehaviour
 
     private float spawnLimit = 0;
 
-    BoxCollider bc;
+    //BoxCollider bc;
 
     // Start is called before the first frame update
     void Start()
     {
-        bc = GetComponent<BoxCollider>();
-        bc.enabled = false;
-
-        if (GameObject.Find("carBox"))
+        if (GameObject.Find("carPrefabCTA"))
         {
-            player = GameObject.Find("carBox");
+            player = GameObject.Find("carPrefabCTA");
         }
+        //bc = GetComponent<BoxCollider>();
+        //bc.enabled = false;
     }
 
     // Update is called once per frame
     // Need to start player near the middle of the block to spawn on back side
     void Update()
     {
+        if (GameObject.Find("carPrefabCTA"))
+        {
+            player = GameObject.Find("carPrefabCTA");
+        }
+
         if (player.transform.position.z > triggerSpawnPoint.position.z)
         {
             spawnLimit += 1;
@@ -46,16 +50,18 @@ public class trackPlayer : MonoBehaviour
             Instantiate(nextObject, spawnPoint.position, spawnPoint.rotation);
             //print("spawned");
         }
-        if (player.transform.position.z > thisObject.position.z + 300)
+        /*if (player.transform.position.z > thisObject.position.z + 300)
         {
             Destroy(gameObject);
             //print("boom");
-        }
+        }*/
 
-        if (player.transform.position.z > triggerBoxCollider.position.z)
+        /*if (player.transform.position.z > triggerBoxCollider.position.z + backToOrigin.distanceToOrigin)
         {
             bc.enabled = true;
         }
+        */
+
 
         //print(spawnLimit);
     }
