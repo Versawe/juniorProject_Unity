@@ -104,6 +104,16 @@ public class carMovement : MonoBehaviour
             transform.Rotate(0, -rotateWheel.turnLimit * 23 * Time.deltaTime, 0);
         }
 
+        //rotates car only if moving forward (like real car)
+        if (speed > 0)
+        {
+            transform.Rotate(0, rotateWheelUpdated.turnLimit * 23 * Time.deltaTime, 0);
+        }
+        if (reverseSpeed > 0)
+        {
+            transform.Rotate(0, -rotateWheelUpdated.turnLimit * 23 * Time.deltaTime, 0);
+        }
+
         //reads touch input only on right side of the screen (to not pay attention to wheel input)
         foreach (Touch touch in Input.touches)
         {

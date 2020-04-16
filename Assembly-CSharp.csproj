@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\userControlScripts\carMovement.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\gearShifterScript.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\rotateWheel.cs" />
+    <Compile Include="Assets\Scripts\userControlScripts\rotateWheelUpdated.cs" />
     <Compile Include="Assets\loadLevelScene.cs" />
     <Compile Include="Assets\menuRotate.cs" />
     <None Include="Assets\Assets2\car\materials\darkSpots\DoubleSidedStandard.shader" />

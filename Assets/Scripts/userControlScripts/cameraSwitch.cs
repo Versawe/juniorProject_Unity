@@ -51,7 +51,7 @@ public class cameraSwitch : MonoBehaviour
         {
             reverseCamOn = true;
             bc.enabled = true;
-        } 
+        }
 
         if (reverseCamOn)
         {
@@ -82,7 +82,7 @@ public class cameraSwitch : MonoBehaviour
         cameraCurrentLocation.x = Transition(cameraCurrentLocation.x, targetLocation.x, 5f);
         cameraCurrentLocation.y = Transition(cameraCurrentLocation.y, targetLocation.y, 5f);
         cameraCurrentLocation.z = Transition(cameraCurrentLocation.z, targetLocation.z, 5f);
-        xRot = Transition(xRot,xRotTarget,5);
+        xRot = Transition(xRot, xRotTarget, 5);
         yRot = Transition(yRot, yRotTarget, 5);
         zRot = Transition(zRot, zRotTarget, 5);
 
