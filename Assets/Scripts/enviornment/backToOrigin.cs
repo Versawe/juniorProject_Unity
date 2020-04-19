@@ -28,7 +28,7 @@ public class backToOrigin : MonoBehaviour
         if (player.transform.position.z >= distanceToOrigin) 
         {
             originSpawn = true;
-            print("oh shat");
+            //print("oh shat");
            
         }
         if (originSpawn) 
