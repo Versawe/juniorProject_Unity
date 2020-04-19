@@ -31,6 +31,10 @@ public class superCruise : MonoBehaviour
                 case 0:
                     sc = 1;
                     superCruiseActive = true;
+                    if (!textTriggers.firstActivated) 
+                    {
+                        textTriggers.firstActivated = true;
+                    }
                     break;
                 case 1:
                     sc = 0;

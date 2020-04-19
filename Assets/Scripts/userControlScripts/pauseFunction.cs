@@ -11,10 +11,12 @@ public class pauseFunction : MonoBehaviour
     public TextMeshProUGUI pauseText;
     public Image resumeButton;
     public Image exitButton;
+    public static bool isPaused;
 
     // Start is called before the first frame update
     void Start()
     {
+        isPaused = false;
         pauseText.gameObject.SetActive(false);
         //pauseTextShadow.gameObject.SetActive(false);
         resumeButton.gameObject.SetActive(false);
@@ -29,6 +31,7 @@ public class pauseFunction : MonoBehaviour
 
     public void pauseUIActive()
     {
+        isPaused = true;
         pauseText.gameObject.SetActive(true);
         //pauseTextShadow.gameObject.SetActive(true);
         resumeButton.gameObject.SetActive(true);
@@ -38,6 +41,7 @@ public class pauseFunction : MonoBehaviour
 
     public void pauseUIOFF()
     {
+        isPaused = false;
         pauseText.gameObject.SetActive(false);
         //pauseTextShadow.gameObject.SetActive(false);
         resumeButton.gameObject.SetActive(false);
@@ -47,6 +51,7 @@ public class pauseFunction : MonoBehaviour
 
     public void exit2Menu()
     {
+        isPaused = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }

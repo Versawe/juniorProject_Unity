@@ -40,9 +40,11 @@ public class textTriggers : MonoBehaviour
 
     
     private float scTimer = 0;
+    public static bool justStarted = false;
     public static bool firstActivated = false;
     public static bool firstWheelMovement = false;
     public static bool lastTextActivate = false;
+    public static bool oneCycleSC = false;
 
     private float rbTimer = 0;
     public static bool onSceneLoad = false;
@@ -63,7 +65,7 @@ public class textTriggers : MonoBehaviour
     void Update()
     {
         //tutorial HERE
-        if (!tutorialOnce) 
+        if (!tutorialOnce && !pauseFunction.isPaused) 
         {
             tutorialtTimer += 1 * Time.deltaTime;
             if (tutorialtTimer > 3) 
@@ -99,5 +101,65 @@ public class textTriggers : MonoBehaviour
             }
 
         }
+
+        //if tutorial isnt happening
+        if (tutorialOnce) 
+        {
+            // super cruise texts HERE
+            if (safteyFeature.isSuperCruise)
+            {
+                if (!justStarted)
+                {
+                    scTimer += 1 * Time.deltaTime;
+                    if (scTimer > 3f && scTimer < 3.30f)
+                    {
+                        Time.timeScale = 0.05f;
+                        scText1.gameObject.SetActive(true);
+                        scArrow.gameObject.SetActive(true);
+                    }
+                    if (scTimer >= 3.30f && scTimer < 3.60f)
+                    {
+                        Time.timeScale = 1f;
+                        scText1.gameObject.SetActive(false);
+                        scArrow.gameObject.SetActive(false);
+                        scTimer = 0;
+                        justStarted = true;
+                    }
+                }
+                if (justStarted)
+                {
+                    if (firstActivated)
+                    {
+                        scTimer += 1 * Time.deltaTime;
+                    }
+                    if (firstActivated && scTimer > 3f && scTimer < 3.30f)
+                    {
+                        Time.timeScale = 0.05f;
+                        scText2.gameObject.SetActive(true);
+                    }
+                    if (scTimer >= 3.30f && scTimer < 3.60f)
+                    {
+                        Time.timeScale = 1f;
+                        scText2.gameObject.SetActive(false);
+                        scTimer = 0;
+                    }
+                }
+
+                if (firstActivated)
+                {
+                    if (firstWheelMovement)
+                    {
+                        Time.timeScale = 0.05f;
+                        scText3.gameObject.SetActive(true);
+
+                    }
+                }
+            }
+
+            // auto rear brake text HERE
+
+        }
+        
+        
     }
 }
