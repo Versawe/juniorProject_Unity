@@ -151,22 +151,19 @@ public class carMovement : MonoBehaviour
 
     public void OnGasUp()
     {
-        if (!superCruise.superCruiseActive) 
-        {
-            //run if release from gas pedal
-            movingForward = false;
-            movingBackwards = false;
-        }
+        //run if release from gas pedal
+        movingForward = false;
+        movingBackwards = false;
+        
         
     }
 
     public void OnBrakeDown()
     {
-        if (!superCruise.superCruiseActive) 
-        {
-            //run if holding brake pedal
-            brakePressing = true;
-        }
+        
+        //run if holding brake pedal
+        brakePressing = true;
+        
         
     }
 

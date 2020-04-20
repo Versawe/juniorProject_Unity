@@ -128,11 +128,19 @@ public class rotateWheel : MonoBehaviour
             if (laneLeftTurn)
             {
                 isSuperCruiseLeft = true;
+                if (!textTriggers.firstWheelMovement) 
+                {
+                    textTriggers.firstWheelMovement = true;
+                }
                 //carBody.transform.rotation = Quaternion.Euler(0, -1f,0);
             }
             if (laneRightTurn)
             {
                 isSuperCruiseRight = true;
+                if (!textTriggers.firstWheelMovement) 
+                {
+                    textTriggers.firstWheelMovement = true;
+                }
                 //carBody.transform.rotation = Quaternion.Euler(0, 1f, 0);
             }
 

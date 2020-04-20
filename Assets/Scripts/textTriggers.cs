@@ -35,13 +35,15 @@ public class textTriggers : MonoBehaviour
     public TextMeshProUGUI ctbText2;
 
     //activate variables
-    public static bool tutorialOnce = false;
+    public static bool tutorialOnce = true; // skips tutorial if true
     private float tutorialtTimer = 0;
 
     
     private float scTimer = 0;
+    public static bool scTimerOff = false;
     public static bool justStarted = false;
     public static bool firstActivated = false;
+    public static bool firstActivated2 = false;
     public static bool firstWheelMovement = false;
     public static bool lastTextActivate = false;
     public static bool oneCycleSC = false;
@@ -117,7 +119,7 @@ public class textTriggers : MonoBehaviour
                         scText1.gameObject.SetActive(true);
                         scArrow.gameObject.SetActive(true);
                     }
-                    if (scTimer >= 3.30f && scTimer < 3.60f)
+                    if (scTimer >= 3.40f && scTimer < 3.70f)
                     {
                         Time.timeScale = 1f;
                         scText1.gameObject.SetActive(false);
@@ -126,38 +128,60 @@ public class textTriggers : MonoBehaviour
                         justStarted = true;
                     }
                 }
-                if (justStarted)
+                if (justStarted && !firstActivated2)
                 {
                     if (firstActivated)
                     {
                         scTimer += 1 * Time.deltaTime;
                     }
-                    if (firstActivated && scTimer > 3f && scTimer < 3.30f)
+                    if (firstActivated && scTimer > 1f && scTimer < 1.40f)
                     {
                         Time.timeScale = 0.05f;
                         scText2.gameObject.SetActive(true);
                     }
-                    if (scTimer >= 3.30f && scTimer < 3.60f)
+                    if (scTimer >= 1.40f && scTimer < 1.70f)
                     {
                         Time.timeScale = 1f;
                         scText2.gameObject.SetActive(false);
                         scTimer = 0;
+                        firstActivated2 = true;
                     }
                 }
 
-                if (firstActivated)
+                if (firstActivated2 && firstWheelMovement)
                 {
-                    if (firstWheelMovement)
+                    scTimer += 1 * Time.deltaTime;
+                    if (scTimer > 1f && scTimer < 1.30f) 
                     {
                         Time.timeScale = 0.05f;
                         scText3.gameObject.SetActive(true);
-
                     }
+                    if (scTimer >= 1.30f && scTimer < 1.60f)
+                    {
+                        Time.timeScale = 1f;
+                        scText3.gameObject.SetActive(false);
+                    }
+                    if (scTimer >= 5.30f && scTimer < 5.60f)
+                    {
+                        Time.timeScale = 0.05f;
+                        scText4.gameObject.SetActive(true);
+                    }
+                    if (scTimer >= 5.60f && scTimer < 5.90f)
+                    {
+                        Time.timeScale = 1f;
+                        scText4.gameObject.SetActive(false);
+                        scTimerOff = true;
+                    }
+
+                }
+                if (scTimerOff) 
+                {
+                    scTimer = 0;
                 }
             }
 
             // auto rear brake text HERE
-
+            //print(scTimer);
         }
         
         
