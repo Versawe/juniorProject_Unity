@@ -32,10 +32,10 @@ public class textTriggers : MonoBehaviour
     //crossTraffic UI
     public GameObject crossTrafficMain;
     public TextMeshProUGUI ctText1;
-    public TextMeshProUGUI ctbText2;
+    public TextMeshProUGUI ctText2;
 
     //activate variables
-    public static bool tutorialOnce = true; // skips tutorial if true
+    public static bool tutorialOnce = false; // skips tutorial if true
     private float tutorialtTimer = 0;
 
     
@@ -54,8 +54,10 @@ public class textTriggers : MonoBehaviour
     public static bool rbLastTextActivate = false;
 
     private float ctTimer = 0;
+    public static bool activateFirstText = false;
     public static bool activateSecondText = false;
-    
+    public static bool endTexts = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -181,6 +183,95 @@ public class textTriggers : MonoBehaviour
             }
 
             // auto rear brake text HERE
+            if (safteyFeature.autoRearBrakeTrigger) 
+            {
+                if (!onSceneLoad) 
+                {
+                    rbTimer += 1 * Time.deltaTime;
+                }
+                if (!onSceneLoad && rbTimer >= 3f && rbTimer <= 3.30f) 
+                {
+                    Time.timeScale = 0.05f;
+                    rbText1.gameObject.SetActive(true);
+                }
+                if (!onSceneLoad && rbTimer > 3.30f)
+                {
+                    Time.timeScale = 1f;
+                    rbText1.gameObject.SetActive(false);
+                    onSceneLoad = true;
+                    rbTimer = 0;
+                }
+
+                if (onSceneLoad && firstBraked) 
+                {
+                    rbTimer += 1 * Time.deltaTime;
+                }
+                if (firstBraked && onSceneLoad && rbTimer >= 1f && rbTimer < 1.30f) 
+                {
+                    Time.timeScale = 0.05f;
+                    rbText2.gameObject.SetActive(true);
+                }
+                if (firstBraked && onSceneLoad && rbTimer >= 1.30f && rbTimer < 1.60f)
+                {
+                    Time.timeScale = 1f;
+                    rbText2.gameObject.SetActive(false);
+                }
+                if (firstBraked && onSceneLoad && rbTimer >= 5.0f && rbTimer < 5.30f)
+                {
+                    Time.timeScale = 0.05f;
+                    rbText3.gameObject.SetActive(true);
+                }
+                if (firstBraked && onSceneLoad && rbTimer >= 5.3f && rbTimer < 5.60f)
+                {
+                    Time.timeScale = 1f;
+                    rbText3.gameObject.SetActive(false);
+                    rbLastTextActivate = true;
+                }
+                if (rbLastTextActivate) 
+                {
+                    rbTimer = 0;
+                }
+            }
+
+            //cross traffic text HERE
+            if (safteyFeature.crossTrafficTrigger) 
+            {
+                if(!activateFirstText) 
+                {
+                    ctTimer += 1 * Time.deltaTime;
+                }
+                if (!activateFirstText && ctTimer >= 3f && ctTimer < 3.30f) 
+                {
+                    Time.timeScale = 0.05f;
+                    ctText1.gameObject.SetActive(true);
+                }
+                if (!activateFirstText && ctTimer >= 3.30f)
+                {
+                    Time.timeScale = 1f;
+                    ctText1.gameObject.SetActive(false);
+                    activateFirstText = true;
+                    ctTimer = 0;
+                }
+                if (activateFirstText && activateSecondText) 
+                {
+                    ctTimer += 1 * Time.deltaTime;
+                }
+                if (activateSecondText && ctTimer >= 1f && ctTimer < 1.35f)
+                {
+                    Time.timeScale = 0.05f;
+                    ctText2.gameObject.SetActive(true);
+                }
+                if (activateSecondText && ctTimer >= 1.35f)
+                {
+                    Time.timeScale = 1f;
+                    ctText2.gameObject.SetActive(false);
+                    endTexts = true;
+                }
+                if (endTexts) 
+                {
+                    ctTimer = 0;
+                }
+            }
             //print(scTimer);
         }
         

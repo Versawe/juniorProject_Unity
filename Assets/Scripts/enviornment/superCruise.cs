@@ -31,7 +31,7 @@ public class superCruise : MonoBehaviour
                 case 0:
                     sc = 1;
                     superCruiseActive = true;
-                    if (!textTriggers.firstActivated) 
+                    if (!textTriggers.firstActivated && safteyFeature.isSuperCruise) 
                     {
                         textTriggers.firstActivated = true;
                     }

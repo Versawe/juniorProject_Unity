@@ -283,6 +283,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5431670877036625165}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &648578854 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337520086241609280, guid: 8a9b4ee0272a93a489709be410de035b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1974263660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb6eacaffbf04b4c826eeca639c0ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &671436083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6496598660032364747, guid: 6013e578dfbcc414581d42b021c50bed,
@@ -580,6 +592,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 337520086241609280, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: driversWheel
+      value: 
+      objectReference: {fileID: 1538374354}
+    - target: {fileID: 337520086241609280, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: carBody
+      value: 
+      objectReference: {fileID: 580401671}
     - target: {fileID: 1049069204602804580, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -695,6 +717,21 @@ PrefabInstance:
       propertyPath: carBody
       value: 
       objectReference: {fileID: 580401671}
+    - target: {fileID: 5398920089822122687, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 648578854}
+    - target: {fileID: 5398920089822122687, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 648578854}
+    - target: {fileID: 5398920090197572829, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5398920090396882611, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
       propertyPath: m_AnchorMax.y

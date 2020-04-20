@@ -1979,6 +1979,7 @@ GameObject:
   - component: {fileID: 5398920089822122681}
   - component: {fileID: 5398920089822122684}
   - component: {fileID: 5398920089822122687}
+  - component: {fileID: 337520086241609280}
   m_Layer: 5
   m_Name: wheel
   m_TagString: Untagged
@@ -2048,7 +2049,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5398920089822122683}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ff5b7e5a72c4d148b8d9d279a7398de, type: 3}
   m_Name: 
@@ -2100,6 +2101,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &337520086241609280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5398920089822122683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb6eacaffbf04b4c826eeca639c0ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heldDown: 0
+  wheel: {fileID: 5398920089822122680}
+  driversWheel: {fileID: 0}
+  carBody: {fileID: 0}
 --- !u!1 &5398920090197572828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,7 +2423,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5398920090549766536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47ff50de135a4934e9a807f361f410e6, type: 3}
   m_Name: 
@@ -2430,7 +2447,7 @@ MonoBehaviour:
   rbText3: {fileID: 2950459369158794009}
   crossTrafficMain: {fileID: 4547427469054576031}
   ctText1: {fileID: 1545591044315977996}
-  ctbText2: {fileID: 1109717770046201579}
+  ctText2: {fileID: 1109717770046201579}
 --- !u!1 &5398920090620586554
 GameObject:
   m_ObjectHideFlags: 0

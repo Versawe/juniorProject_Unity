@@ -50,10 +50,18 @@ public class rearTrigger : MonoBehaviour
         if (rightAlert) 
         {
             print("Right ALERTTTTT");
+            if (!textTriggers.activateSecondText && safteyFeature.crossTrafficTrigger) 
+            {
+                textTriggers.activateSecondText = true;
+            }
         }
         if (leftAlert) 
         {
             print("Left Alert");
+            if (!textTriggers.activateSecondText && safteyFeature.crossTrafficTrigger)
+            {
+                textTriggers.activateSecondText = true;
+            }
         }
 
         //print(safteyFeature.autoRearBrakeTrigger);
@@ -67,6 +75,10 @@ public class rearTrigger : MonoBehaviour
             if (other.gameObject.tag == "AI")
             {
                 isAutoBraking = true;
+                if (!textTriggers.firstBraked && safteyFeature.autoRearBrakeTrigger) 
+                {
+                    textTriggers.firstBraked = true;
+                }
             }
         }
 
