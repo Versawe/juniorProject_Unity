@@ -40,19 +40,12 @@ public class rotateWheelUpdated : MonoBehaviour
     //following code is for quadrents of rotation and the actual position having to do with rotating the drivers wheel
 
     private int quadrent = 1;
-    private int quadrentLast = 1;
-    private bool quad1DidOnce = false;
-    private bool quad2DidOnce = false;
-    private bool quad3DidOnce = false;
-    private bool quad4DidOnce = false;
     private bool hasRecordedInitialFingerPosition = false;
 
-    private float angleOfTouch;
-    private float initialFingerPosition;
-    private float angleOfWheel;
+    private float angleOfTouch = 0;
+    private float angleOfTouchPrev;
+    private float angularChange;
     private float rotationActual;
-    private float lastAngleOfWheel;
-    private float angleOfRotationThisFrame;
 
 
     // Start is called before the first frame update
@@ -82,179 +75,92 @@ public class rotateWheelUpdated : MonoBehaviour
                     touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
                     //steers the wheel based on finger location compared to center point of wheel
-
                     /*
-                    
                     if (touchPosition.x > centerPoint.x && turnLimit <= 1.5)
                     {
-                        transform.Rotate(0, 0, -178 * Time.deltaTime);
-                        turnLimit += 1 * Time.deltaTime;
+                        //transform.Rotate(0, 0, -178 * Time.deltaTime);
+                        rotationActual -= 178 * Time.deltaTime;
+                        //turnLimit += 1 * Time.deltaTime;
                     }
                     if (touchPosition.x < centerPoint.x && turnLimit >= -1.5)
                     {
-                        transform.Rotate(0, 0, 178 * Time.deltaTime);
-                        turnLimit += -1 * Time.deltaTime;
+                        //transform.Rotate(0, 0, 178 * Time.deltaTime);
+                        rotationActual += 178 * Time.deltaTime;
+                        //turnLimit += -1 * Time.deltaTime;
                     }
                     */
-                    
 
                     //The following code is a mess, but it handles the wheel's rotation.
+                    angleOfTouchPrev = angleOfTouch;
                     angleOfTouch = (calcAngleFromCenter(centerPoint.x, centerPoint.y, touchPosition.x, touchPosition.y));
 
-                    if(hasRecordedInitialFingerPosition == false)
+                    //print(rotationActual);
+
+                    if (hasRecordedInitialFingerPosition == false)
                     {
-                        initialFingerPosition = angleOfTouch;
+                        angleOfTouchPrev = angleOfTouch;
                         hasRecordedInitialFingerPosition = true;
                     }
 
-                    angleOfWheel = angleOfTouch; /*- initialFingerPosition;*/
-
-                    if (angleOfWheel >= 0 && angleOfWheel < 90)
+                    if (angleOfTouch >= 0 && angleOfTouch < 90)
                     {
-                        if(quad1DidOnce == false)
-                        {
-                            quadrentLast = quadrent;
-                            quad1DidOnce = true;
-                            quad2DidOnce = false;
-                            quad3DidOnce = false;
-                            quad4DidOnce = false;
-                        }
                         quadrent = 1;
+                        angularChange = angleOfTouch - angleOfTouchPrev;
                     }
 
-                    if (angleOfWheel >= 90 && angleOfWheel <= 180)
+                    if (angleOfTouch >= 90 && angleOfTouch <= 180)
                     {
-                        if (quad2DidOnce == false)
+                        if(quadrent == 3)
                         {
-                            quadrentLast = quadrent;
-                            quad1DidOnce = false;
-                            quad2DidOnce = true;
-                            quad3DidOnce = false;
-                            quad4DidOnce = false;
+                            angularChange = angleOfTouch - angleOfTouchPrev - 360;
+                        }
+                        if(quadrent == 1)
+                        {
+                            angularChange = angleOfTouch - angleOfTouchPrev;
+                        }
+                        if(quadrent == 2)
+                        {
+                            angularChange = angleOfTouch - angleOfTouchPrev;
                         }
                         quadrent = 2;
                     }
 
-                    if (angleOfWheel <= -90 && angleOfWheel >= -180)
+                    if (angleOfTouch <= -90 && angleOfTouch >= -180)
                     {
-                        if (quad3DidOnce == false)
+                        if(quadrent == 2)
                         {
-                            quadrentLast = quadrent;
-                            quad1DidOnce = false;
-                            quad2DidOnce = false;
-                            quad3DidOnce = true;
-                            quad4DidOnce = false;
+                            angularChange = angleOfTouch - angleOfTouchPrev + 360;
+                        }
+                        if(quadrent == 4)
+                        {
+                            angularChange = angleOfTouch - angleOfTouchPrev;
+                        }
+                        if(quadrent == 3)
+                        {
+                            angularChange = angleOfTouch - angleOfTouchPrev;
                         }
                         quadrent = 3;
                     }
 
-                    if (angleOfWheel < 0 && angleOfWheel > -90)
+                    if (angleOfTouch < 0 && angleOfTouch > -90)
                     {
-                        if (quad4DidOnce == false)
-                        {
-                            quadrentLast = quadrent;
-                            quad1DidOnce = false;
-                            quad2DidOnce = false;
-                            quad3DidOnce = false;
-                            quad4DidOnce = true;
-                        }
+                        angularChange = angleOfTouch - angleOfTouchPrev;
                         quadrent = 4;
                     }
 
-                    if (quadrent == 1)
+                    if(rotationActual > 270)
                     {
-                        if(quadrentLast == 2)
-                        {
-                            if(rotationActual > 0)
-                            {
-                                rotationActual = angleOfWheel;
-                            }
-                            if (rotationActual < 0)
-                            {
-                                rotationActual = -270;
-                            }
-                        }
-                        if(quadrentLast == 4)
-                        {
-                            rotationActual = angleOfWheel;
-                        }
+                        angularChange = 0;
+                        rotationActual = 270;
                     }
 
-                    if (quadrent == 2)
+                    if (rotationActual < -270)
                     {
-                        if(quadrentLast == 3)
-                        {
-                            if(rotationActual > 0)
-                            {
-                                rotationActual = angleOfWheel;
-                            }
-                            if(rotationActual < 0)
-                            {
-                                rotationActual = angleOfWheel - 360;
-                            }
-                        }
-                        if(quadrentLast == 1)
-                        {
-                            if(rotationActual > 0)
-                            {
-                                rotationActual = angleOfWheel;
-                            }
-                            if (rotationActual < 0)
-                            {
-                                rotationActual = angleOfWheel -360;
-                            }
-                        }
+                        angularChange = 0;
+                        rotationActual = -270;
                     }
 
-                    if (quadrent == 3)
-                    {
-                        if(quadrentLast == 2)
-                        {
-                            if(rotationActual > 0)
-                            {
-                                rotationActual = angleOfWheel + 360;
-                            }
-                            if (rotationActual < 0)
-                            {
-                                rotationActual = angleOfWheel;
-                            }
-                        }
-                        if(quadrentLast == 4)
-                        {
-                            if(rotationActual > 0)
-                            {
-                                rotationActual = angleOfWheel + 360;
-                            }
-                            if(rotationActual < 0)
-                            {
-                                rotationActual = angleOfWheel;
-                            }
-                        }
-                    }
-
-                    if (quadrent == 4)
-                    {
-                        if(quadrentLast == 1)
-                        {
-                            rotationActual = angleOfWheel;
-                        }
-                        if (quadrentLast == 3)
-                        {
-                            if(rotationActual > 0)
-                            {
-                                rotationActual = 270;
-                            }
-                            if(rotationActual < 0)
-                            {
-                                rotationActual = angleOfWheel;
-                            }
-                        }
-                    }
-
-                    turnLimit = -rotationActual / 150;
-
-
-                    transform.rotation = Quaternion.Euler(0,0,rotationActual);
+                    rotationActual += angularChange;
                 }
 
             }
@@ -263,16 +169,18 @@ public class rotateWheelUpdated : MonoBehaviour
 
         if(Input.GetKeyDown("d"))
         {
-            transform.Rotate(0, 0, -178*4 * Time.deltaTime);
+            //transform.Rotate(0, 0, -178*4 * Time.deltaTime);
             //driversWheel.transform.Rotate(0, 0, 100 * Time.deltaTime);
-            turnLimit += 4 * Time.deltaTime;
+            rotationActual += 100 * Time.deltaTime;
+            //turnLimit += 4 * Time.deltaTime;
         }
 
         if (Input.GetKeyDown("a"))
         {
-            transform.Rotate(0, 0, 178*4 * Time.deltaTime);
+            //transform.Rotate(0, 0, 178*4 * Time.deltaTime);
             //driversWheel.transform.Rotate(0, 0, -100 * Time.deltaTime);
-            turnLimit += -4 * Time.deltaTime;
+            rotationActual -= 100 * Time.deltaTime;
+            //turnLimit += -4 * Time.deltaTime;
         }
 
         //wheel turning back to center position when user doesn't hold down on it
@@ -280,13 +188,15 @@ public class rotateWheelUpdated : MonoBehaviour
         {
             if (back2Start && turnLimit > 0 + 0.15f)
             {
-                transform.Rotate(0, 0, 178 * Time.deltaTime);
-                turnLimit += -1 * Time.deltaTime;
+                //transform.Rotate(0, 0, 178 * Time.deltaTime);
+                rotationActual += 178 * Time.deltaTime;
+                //turnLimit += -1 * Time.deltaTime;
             }
             if (back2Start && turnLimit < 0 + -0.15f)
             {
-                transform.Rotate(0, 0, -178 * Time.deltaTime);
-                turnLimit += 1 * Time.deltaTime;
+                //transform.Rotate(0, 0, -178 * Time.deltaTime);
+                rotationActual -= 178 * Time.deltaTime;
+                //turnLimit += 1 * Time.deltaTime;
             }
             if (back2Start && turnLimit < 0 + 0.15f && turnLimit > 0 + -0.15f)
             {
@@ -306,18 +216,17 @@ public class rotateWheelUpdated : MonoBehaviour
             if (laneLeftTurn)
             {
                 isSuperCruiseLeft = true;
-                //carBody.transform.rotation = Quaternion.Euler(0, -1f,0);
+                carBody.transform.rotation = Quaternion.Euler(0, -1f,0);
             }
             if (laneRightTurn)
             {
                 isSuperCruiseRight = true;
-                //carBody.transform.rotation = Quaternion.Euler(0, 1f, 0);
+                carBody.transform.rotation = Quaternion.Euler(0, 1f, 0);
             }
 
             laneLeftTurn = false;
             laneRightTurn = false;
             rectTrans.localRotation = new Quaternion(0, 0, 0, 0);
-            turnLimit = 0;
             laneCTimer = 0;
         }
 
@@ -350,13 +259,13 @@ public class rotateWheelUpdated : MonoBehaviour
         {
             if (superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, 115 * Time.deltaTime);
-                turnLimit += -.1f * Time.deltaTime;
+                //transform.Rotate(0, 0, 115 * Time.deltaTime);
+                rotationActual += 115 * Time.deltaTime;
             }
             if (!superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, 278 * Time.deltaTime);
-                turnLimit += -4f * Time.deltaTime;
+                //transform.Rotate(0, 0, 278 * Time.deltaTime);
+                rotationActual += 278 * Time.deltaTime;
             }
             
         }
@@ -364,23 +273,25 @@ public class rotateWheelUpdated : MonoBehaviour
         {
             if (superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, -115 * Time.deltaTime);
-                turnLimit += .1f * Time.deltaTime;
+                //transform.Rotate(0, 0, -115 * Time.deltaTime);
+                rotationActual -= 115;
             }
             if (!superCruise.superCruiseActive)
             {
-                transform.Rotate(0, 0, -278 * Time.deltaTime);
-                turnLimit += 4f * Time.deltaTime;
+                //transform.Rotate(0, 0, -278 * Time.deltaTime);
+                rotationActual -= 278;
             }
             
         }
 
+        turnLimit = -rotationActual * .0075f;
+
+        transform.rotation = Quaternion.Euler(0, 0, rotationActual);
+
         rotationValue = transform.localEulerAngles.z;
 
-        //driversWheel.rotation = Quaternion.Euler(-24f, 180f, -rotationValue);
         driversWheel.rotation = Quaternion.Euler(-24f + carBody.transform.localEulerAngles.x, 180f + carBody.transform.localEulerAngles.y, -rotationValue);
-
-        //print(transform.rotation.z);
+        
 
 
     }
@@ -404,6 +315,7 @@ public class rotateWheelUpdated : MonoBehaviour
         touchPosition = new Vector2(0, 0);
         back2Start = true;
         hasRecordedInitialFingerPosition = false;
+        rotationActual = 0;
     }
 
     public float calcAngleFromCenter(float centerX, float centerY, float fingerX, float fingerY)

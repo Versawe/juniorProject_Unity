@@ -317,10 +317,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 337520086241609280, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: driversWheel
+      value: 
+      objectReference: {fileID: 2612979233332608770}
+    - target: {fileID: 337520086241609280, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: carBody
+      value: 
+      objectReference: {fileID: 2612979233320434859}
     - target: {fileID: 5398920089822122680, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 12.000061
+      value: 11.999954
       objectReference: {fileID: 0}
     - target: {fileID: 5398920089822122684, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
@@ -332,6 +342,21 @@ PrefabInstance:
       propertyPath: driversWheel
       value: 
       objectReference: {fileID: 2612979233332608770}
+    - target: {fileID: 5398920089822122687, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1977095028}
+    - target: {fileID: 5398920089822122687, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1977095028}
+    - target: {fileID: 5398920090197572829, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5398920090396882611, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -509,6 +534,18 @@ PrefabInstance:
       objectReference: {fileID: 2612979233320434859}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a9b4ee0272a93a489709be410de035b, type: 3}
+--- !u!114 &1977095028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337520086241609280, guid: 8a9b4ee0272a93a489709be410de035b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579577067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb6eacaffbf04b4c826eeca639c0ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &31426621297369887
 MonoBehaviour:
   m_ObjectHideFlags: 0
