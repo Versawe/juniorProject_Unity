@@ -72,6 +72,8 @@
     <Compile Include="Assets\Scripts\enviornment\safteyFeature.cs" />
     <Compile Include="Assets\Scripts\enviornment\superCruise.cs" />
     <Compile Include="Assets\Scripts\enviornment\trackPlayer.cs" />
+    <Compile Include="Assets\Scripts\followGyro.cs" />
+    <Compile Include="Assets\Scripts\gyroManager.cs" />
     <Compile Include="Assets\Scripts\textTriggers.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\cameraSwitch.cs" />
     <Compile Include="Assets\Scripts\userControlScripts\carMovement.cs" />
