@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI\laneChangeCar.cs" />
     <Compile Include="Assets\Scripts\AI\randomSpawn.cs" />
+    <Compile Include="Assets\Scripts\AI\simpleMoveForward.cs" />
     <Compile Include="Assets\Scripts\enviornment\backToOrigin.cs" />
     <Compile Include="Assets\Scripts\enviornment\laneTracking.cs" />
     <Compile Include="Assets\Scripts\enviornment\loadLevelScene.cs" />
@@ -83,7 +84,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Assets2\car\materials\darkSpots\DoubleSidedStandard.shader" />
+    <None Include="Assets\Assets\Urban Asset Package\car\materials\darkSpots\DoubleSidedStandard.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
