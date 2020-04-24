@@ -24,6 +24,9 @@ public class textTriggers : MonoBehaviour
     public TextMeshProUGUI scText2;
     public TextMeshProUGUI scText3;
     public TextMeshProUGUI scText4;
+    public Image scTextBG;
+    public Button scNextButton;
+
 
     //rearBrake UI
     public GameObject rearBrakeMain;
@@ -46,6 +49,7 @@ public class textTriggers : MonoBehaviour
     private int tutorialNext = 0;
     
     private float scTimer = 0;
+    private int scNext = 0;
     public static bool scTimerOff = false;
     public static bool justStarted = false;
     public static bool firstActivated = false;
@@ -76,6 +80,8 @@ public class textTriggers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //print(firstActivated2);
+        //print(firstWheelMovement);
         //tutorial HERE
         if (!tutorialOnce && !pauseFunction.isPaused) 
         {
@@ -105,17 +111,22 @@ public class textTriggers : MonoBehaviour
                 if (!justStarted && tutorialOnce)
                 {
                     scTimer += 1 * Time.deltaTime;
-                    if (scTimer > 3f && scTimer < 3.30f)
+                    if (scTimer > 3f && scTimer < 3.05f)
                     {
                         Time.timeScale = 0.05f;
                         scText1.gameObject.SetActive(true);
                         scArrow.gameObject.SetActive(true);
+                        scNextButton.gameObject.SetActive(true);
+                        scTextBG.gameObject.SetActive(true);
+
                     }
-                    if (scTimer >= 3.40f && scTimer < 3.70f)
+                    if (scNext == 1 && !justStarted)
                     {
                         Time.timeScale = 1f;
                         scText1.gameObject.SetActive(false);
                         scArrow.gameObject.SetActive(false);
+                        scNextButton.gameObject.SetActive(false);
+                        scTextBG.gameObject.SetActive(false);
                         scTimer = 0;
                         justStarted = true;
                     }
@@ -126,15 +137,19 @@ public class textTriggers : MonoBehaviour
                     {
                         scTimer += 1 * Time.deltaTime;
                     }
-                    if (firstActivated && scTimer > 1f && scTimer < 1.40f)
+                    if (firstActivated && scTimer > 1f && scTimer < 1.05f)
                     {
                         Time.timeScale = 0.05f;
                         scText2.gameObject.SetActive(true);
+                        scNextButton.gameObject.SetActive(true);
+                        scTextBG.gameObject.SetActive(true);
                     }
-                    if (scTimer >= 1.40f && scTimer < 1.70f)
+                    if (scNext == 2 && !firstActivated2)
                     {
                         Time.timeScale = 1f;
                         scText2.gameObject.SetActive(false);
+                        scNextButton.gameObject.SetActive(false);
+                        scTextBG.gameObject.SetActive(false);
                         scTimer = 0;
                         firstActivated2 = true;
                     }
@@ -143,25 +158,33 @@ public class textTriggers : MonoBehaviour
                 if (firstActivated2 && firstWheelMovement)
                 {
                     scTimer += 1 * Time.deltaTime;
-                    if (scTimer > 1f && scTimer < 1.30f) 
+                    if (scTimer > 1f && scTimer < 1.05f) 
                     {
                         Time.timeScale = 0.05f;
                         scText3.gameObject.SetActive(true);
+                        scNextButton.gameObject.SetActive(true);
+                        scTextBG.gameObject.SetActive(true);
                     }
-                    if (scTimer >= 1.30f && scTimer < 1.60f)
+                    if (scNext == 3)
                     {
                         Time.timeScale = 1f;
                         scText3.gameObject.SetActive(false);
+                        scNextButton.gameObject.SetActive(false);
+                        scTextBG.gameObject.SetActive(false);
                     }
-                    if (scTimer >= 5.30f && scTimer < 5.60f)
+                    if (scNext == 3)
                     {
                         Time.timeScale = 0.05f;
                         scText4.gameObject.SetActive(true);
+                        scNextButton.gameObject.SetActive(true);
+                        scTextBG.gameObject.SetActive(true);
                     }
-                    if (scTimer >= 5.60f && scTimer < 5.90f)
+                    if (scNext == 4)
                     {
                         Time.timeScale = 1f;
                         scText4.gameObject.SetActive(false);
+                        scNextButton.gameObject.SetActive(false);
+                        scTextBG.gameObject.SetActive(false);
                         scTimerOff = true;
                     }
 
@@ -303,7 +326,10 @@ public class textTriggers : MonoBehaviour
             //cross traffic alert
             if (safteyFeature.crossTrafficTrigger) 
             {
-                
+                if (ctNext == 4)
+                {
+                    ctNext = 5;
+                }
                 if (ctNext == 3)
                 {
                     ctNext = 4;
@@ -318,7 +344,25 @@ public class textTriggers : MonoBehaviour
                 }
             }
             //supercruise
-            
+            if (safteyFeature.isSuperCruise) 
+            {
+                if (scNext == 3)
+                {
+                    scNext = 4;
+                }
+                if (scNext == 2)
+                {
+                    scNext = 3;
+                }
+                if (scNext == 1)
+                {
+                    scNext = 2;
+                }
+                if (scNext == 0)
+                {
+                    scNext = 1;
+                }
+            }
             
         }
 

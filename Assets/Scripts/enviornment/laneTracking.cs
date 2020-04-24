@@ -46,16 +46,24 @@ public class laneTracking : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "carBox")
+        if (collision.gameObject.name == "carPrefabCTA")
         {
             if(thisLane.gameObject.name == "shoulder1")
             {
                 playerCar.transform.Rotate(0,-0.75f,0);
+                if (!textTriggers.firstWheelMovement)
+                {
+                    textTriggers.firstWheelMovement = true;
+                }
                 //print("shoudler1");
             }
             if (thisLane.gameObject.name == "shoulder2")
             {
                 playerCar.transform.Rotate(0, 0.75f, 0);
+                if (!textTriggers.firstWheelMovement)
+                {
+                    textTriggers.firstWheelMovement = true;
+                }
                 //print("shoudler2");
             }
             if (thisLane.gameObject.name == "lane")
@@ -63,11 +71,19 @@ public class laneTracking : MonoBehaviour
                 if (playerCar.transform.position.x > thisLane.position.x)
                 {
                     playerCar.transform.Rotate(0, -0.75f, 0);
+                    if (!textTriggers.firstWheelMovement)
+                    {
+                        textTriggers.firstWheelMovement = true;
+                    }
                     //print("right of middle lane");
                 }
                 if (playerCar.transform.position.x < thisLane.position.x)
                 {
                     playerCar.transform.Rotate(0, 0.75f, 0);
+                    if (!textTriggers.firstWheelMovement)
+                    {
+                        textTriggers.firstWheelMovement = true;
+                    }
                     //print("left of middle lane");
 
                 }
@@ -77,11 +93,19 @@ public class laneTracking : MonoBehaviour
                 if (playerCar.transform.position.x > thisLane.position.x)
                 {
                     playerCar.transform.Rotate(0, -0.75f, 0);
+                    if (!textTriggers.firstWheelMovement)
+                    {
+                        textTriggers.firstWheelMovement = true;
+                    }
                     //print("right of middle lane");
                 }
                 if (playerCar.transform.position.x < thisLane.position.x)
                 {
                     playerCar.transform.Rotate(0, 0.75f, 0);
+                    if (!textTriggers.firstWheelMovement)
+                    {
+                        textTriggers.firstWheelMovement = true;
+                    }
                     //print("left of middle lane");
 
                 }
@@ -91,11 +115,19 @@ public class laneTracking : MonoBehaviour
                 if (playerCar.transform.position.x > thisLane.position.x)
                 {
                     playerCar.transform.Rotate(0, -0.75f, 0);
+                    if (!textTriggers.firstWheelMovement)
+                    {
+                        textTriggers.firstWheelMovement = true;
+                    }
                     //print("right of middle lane");
                 }
                 if (playerCar.transform.position.x < thisLane.position.x)
                 {
                     playerCar.transform.Rotate(0, 0.75f, 0);
+                    if (!textTriggers.firstWheelMovement)
+                    {
+                        textTriggers.firstWheelMovement = true;
+                    }
                     //print("left of middle lane");
 
                 }
