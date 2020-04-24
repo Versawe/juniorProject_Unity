@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class pauseFunction : MonoBehaviour
 {
     public TextMeshProUGUI pauseText;
+    public Image pauseBG;
     public Image resumeButton;
     public Image exitButton;
     public static bool isPaused;
@@ -18,6 +19,7 @@ public class pauseFunction : MonoBehaviour
     {
         isPaused = false;
         pauseText.gameObject.SetActive(false);
+        pauseBG.gameObject.SetActive(false);
         //pauseTextShadow.gameObject.SetActive(false);
         resumeButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
@@ -33,7 +35,7 @@ public class pauseFunction : MonoBehaviour
     {
         isPaused = true;
         pauseText.gameObject.SetActive(true);
-        //pauseTextShadow.gameObject.SetActive(true);
+        pauseBG.gameObject.SetActive(true);
         resumeButton.gameObject.SetActive(true);
         exitButton.gameObject.SetActive(true);
         Time.timeScale = 0f;
@@ -43,7 +45,7 @@ public class pauseFunction : MonoBehaviour
     {
         isPaused = false;
         pauseText.gameObject.SetActive(false);
-        //pauseTextShadow.gameObject.SetActive(false);
+        pauseBG.gameObject.SetActive(false);
         resumeButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
         Time.timeScale = 1f;

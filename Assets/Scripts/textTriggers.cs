@@ -30,16 +30,20 @@ public class textTriggers : MonoBehaviour
     public TextMeshProUGUI rbText1;
     public TextMeshProUGUI rbText2;
     public TextMeshProUGUI rbText3;
+    public Image rbTextBG;
+    public Button rbNextButton;
 
     //crossTraffic UI
     public GameObject crossTrafficMain;
     public TextMeshProUGUI ctText1;
     public TextMeshProUGUI ctText2;
+    public Image ctTextBG;
+    public Button ctNextButton;
 
     //activate variables
     public static bool tutorialOnce = false; // skips tutorial if true
     private float tutorialtTimer = 0;
-    private float tutorialNext = 0;
+    private int tutorialNext = 0;
     
     private float scTimer = 0;
     public static bool scTimerOff = false;
@@ -54,11 +58,13 @@ public class textTriggers : MonoBehaviour
     public static bool onSceneLoad = false;
     public static bool firstBraked = false;
     public static bool rbLastTextActivate = false;
+    private int rbNext = 0;
 
     private float ctTimer = 0;
     public static bool activateFirstText = false;
     public static bool activateSecondText = false;
     public static bool endTexts = false;
+    private int ctNext = 0;
 
 
     // Start is called before the first frame update
@@ -96,7 +102,7 @@ public class textTriggers : MonoBehaviour
             // super cruise texts HERE
             if (safteyFeature.isSuperCruise && !pauseFunction.isPaused)
             {
-                if (!justStarted)
+                if (!justStarted && tutorialOnce)
                 {
                     scTimer += 1 * Time.deltaTime;
                     if (scTimer > 3f && scTimer < 3.30f)
@@ -173,43 +179,31 @@ public class textTriggers : MonoBehaviour
                 {
                     rbTimer += 1 * Time.deltaTime;
                 }
-                if (!onSceneLoad && rbTimer >= 3f && rbTimer <= 3.30f) 
+                if (!onSceneLoad && rbTimer >= 3f && rbTimer <= 3.01f) 
                 {
                     Time.timeScale = 0.05f;
                     rbText1.gameObject.SetActive(true);
+                    rbNextButton.gameObject.SetActive(true);
+                    rbTextBG.gameObject.SetActive(true);
                 }
-                if (!onSceneLoad && rbTimer > 3.30f)
-                {
-                    Time.timeScale = 1f;
-                    rbText1.gameObject.SetActive(false);
-                    onSceneLoad = true;
-                    rbTimer = 0;
-                }
-
                 if (onSceneLoad && firstBraked) 
                 {
                     rbTimer += 1 * Time.deltaTime;
                 }
-                if (firstBraked && onSceneLoad && rbTimer >= 1f && rbTimer < 1.30f) 
+                if (firstBraked && onSceneLoad && rbTimer >= 1f && rbTimer < 1.05f) 
                 {
                     Time.timeScale = 0.05f;
                     rbText2.gameObject.SetActive(true);
+                    rbNextButton.gameObject.SetActive(true);
+                    rbTextBG.gameObject.SetActive(true);
+                    rbNext = 2;
                 }
-                if (firstBraked && onSceneLoad && rbTimer >= 1.30f && rbTimer < 1.60f)
-                {
-                    Time.timeScale = 1f;
-                    rbText2.gameObject.SetActive(false);
-                }
-                if (firstBraked && onSceneLoad && rbTimer >= 5.0f && rbTimer < 5.30f)
+                if (firstBraked && onSceneLoad && rbNext == 3)
                 {
                     Time.timeScale = 0.05f;
                     rbText3.gameObject.SetActive(true);
-                }
-                if (firstBraked && onSceneLoad && rbTimer >= 5.3f && rbTimer < 5.60f)
-                {
-                    Time.timeScale = 1f;
-                    rbText3.gameObject.SetActive(false);
-                    rbLastTextActivate = true;
+                    rbNextButton.gameObject.SetActive(true);
+                    rbTextBG.gameObject.SetActive(true);
                 }
                 if (rbLastTextActivate) 
                 {
@@ -220,19 +214,24 @@ public class textTriggers : MonoBehaviour
             //cross traffic text HERE
             if (safteyFeature.crossTrafficTrigger && !pauseFunction.isPaused) 
             {
-                if(!activateFirstText) 
+                if(!activateFirstText && tutorialOnce) 
                 {
                     ctTimer += 1 * Time.deltaTime;
                 }
-                if (!activateFirstText && ctTimer >= 3f && ctTimer < 3.30f) 
+                if (!activateFirstText && ctTimer >= 3f && ctTimer < 3.05f) 
                 {
                     Time.timeScale = 0.05f;
                     ctText1.gameObject.SetActive(true);
+                    ctNextButton.gameObject.SetActive(true);
+                    ctTextBG.gameObject.SetActive(true);
+                    ctNext = 1;
                 }
-                if (!activateFirstText && ctTimer >= 3.30f)
+                if (!activateFirstText && ctNext == 2)
                 {
                     Time.timeScale = 1f;
                     ctText1.gameObject.SetActive(false);
+                    ctNextButton.gameObject.SetActive(false);
+                    ctTextBG.gameObject.SetActive(false);
                     activateFirstText = true;
                     ctTimer = 0;
                 }
@@ -240,15 +239,20 @@ public class textTriggers : MonoBehaviour
                 {
                     ctTimer += 1 * Time.deltaTime;
                 }
-                if (activateSecondText && ctTimer >= 1f && ctTimer < 1.35f)
+                if (activateSecondText && ctTimer >= 1f && ctTimer < 1.05f)
                 {
                     Time.timeScale = 0.05f;
                     ctText2.gameObject.SetActive(true);
+                    ctNextButton.gameObject.SetActive(true);
+                    ctTextBG.gameObject.SetActive(true);
+                    ctNext = 3;
                 }
-                if (activateSecondText && ctTimer >= 1.35f)
+                if (activateSecondText && ctNext == 4)
                 {
                     Time.timeScale = 1f;
                     ctText2.gameObject.SetActive(false);
+                    ctNextButton.gameObject.SetActive(false);
+                    ctTextBG.gameObject.SetActive(false);
                     endTexts = true;
                 }
                 if (endTexts) 
@@ -263,6 +267,61 @@ public class textTriggers : MonoBehaviour
 
     public void nextTextEvent()
     {
+        if (tutorialOnce)
+        {
+            //////rear brake
+            if (safteyFeature.autoRearBrakeTrigger) 
+            {
+                if (rbNext == 3 && firstBraked)
+                {
+                    Time.timeScale = 1f;
+                    rbText3.gameObject.SetActive(false);
+                    rbNextButton.gameObject.SetActive(false);
+                    rbTextBG.gameObject.SetActive(false);
+                    rbLastTextActivate = true;
+                    rbNext = 0;
+                }
+                if (firstBraked && rbNext == 2)
+                {
+                    Time.timeScale = 1f;
+                    rbText2.gameObject.SetActive(false);
+                    rbNextButton.gameObject.SetActive(false);
+                    rbTextBG.gameObject.SetActive(false);
+                    rbNext = 3;
+                }
+                if (!onSceneLoad && rbNext == 0)
+                {
+                    Time.timeScale = 1f;
+                    rbText1.gameObject.SetActive(false);
+                    rbNextButton.gameObject.SetActive(false);
+                    rbTextBG.gameObject.SetActive(false);
+                    onSceneLoad = true;
+                    rbTimer = 0;
+                    rbNext = 1;
+                }
+            }
+            //cross traffic alert
+            if (safteyFeature.crossTrafficTrigger) 
+            {
+                
+                if (ctNext == 3)
+                {
+                    ctNext = 4;
+                }
+                if (ctNext == 2)
+                {
+                    ctNext = 3;
+                }
+                if (ctNext == 1)
+                {
+                    ctNext = 2;
+                }
+            }
+            //supercruise
+            
+            
+        }
+
         if (!tutorialOnce && tutorialNext == 3)
         {
             steeringWheelText.gameObject.SetActive(false);
@@ -291,5 +350,6 @@ public class textTriggers : MonoBehaviour
             tutorialNext = 2;
         }
 
+        
     }
 }
