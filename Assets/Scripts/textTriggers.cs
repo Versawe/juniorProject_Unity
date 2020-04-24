@@ -14,6 +14,8 @@ public class textTriggers : MonoBehaviour
     public TextMeshProUGUI gearText;
     public TextMeshProUGUI brakeGasText;
     public TextMeshProUGUI steeringWheelText;
+    public Image tutorialTextBG;
+    public Button tutorialNextButton;
 
     //superCruise UI
     public GameObject superCruiseMain;
@@ -37,7 +39,7 @@ public class textTriggers : MonoBehaviour
     //activate variables
     public static bool tutorialOnce = false; // skips tutorial if true
     private float tutorialtTimer = 0;
-
+    private float tutorialNext = 0;
     
     private float scTimer = 0;
     public static bool scTimerOff = false;
@@ -72,36 +74,18 @@ public class textTriggers : MonoBehaviour
         if (!tutorialOnce && !pauseFunction.isPaused) 
         {
             tutorialtTimer += 1 * Time.deltaTime;
+            
             if (tutorialtTimer > 3) 
             {
                 Time.timeScale = 0.05f;
             }
-            if (tutorialtTimer >= 3f && tutorialtTimer < 3.30f) 
+            if (tutorialtTimer >= 3f && tutorialtTimer < 3.01f) 
             {
                 gearText.gameObject.SetActive(true);
                 gearArrow.gameObject.SetActive(true);
-            }
-            if (tutorialtTimer >= 3.30f && tutorialtTimer < 3.60f)
-            {
-                gearText.gameObject.SetActive(false);
-                gearArrow.gameObject.SetActive(false);
-                brakeGasArrow.gameObject.SetActive(true);
-                brakeGasText.gameObject.SetActive(true);
-            }
-            if (tutorialtTimer >= 3.60f && tutorialtTimer < 3.9f) 
-            {
-                brakeGasArrow.gameObject.SetActive(false);
-                brakeGasText.gameObject.SetActive(false);
-                steeringWheelText.gameObject.SetActive(true);
-                steeringArrow.gameObject.SetActive(true);
-            }
-            if (tutorialtTimer >= 3.9f)
-            {
-                steeringWheelText.gameObject.SetActive(false);
-                steeringArrow.gameObject.SetActive(false);
-                Time.timeScale = 1f;
-                tutorialtTimer = 0;
-                tutorialOnce = true;
+                tutorialTextBG.gameObject.SetActive(true);
+                tutorialNextButton.gameObject.SetActive(true);
+                tutorialNext = 1;
             }
 
         }
@@ -110,7 +94,7 @@ public class textTriggers : MonoBehaviour
         if (tutorialOnce) 
         {
             // super cruise texts HERE
-            if (safteyFeature.isSuperCruise)
+            if (safteyFeature.isSuperCruise && !pauseFunction.isPaused)
             {
                 if (!justStarted)
                 {
@@ -183,7 +167,7 @@ public class textTriggers : MonoBehaviour
             }
 
             // auto rear brake text HERE
-            if (safteyFeature.autoRearBrakeTrigger) 
+            if (safteyFeature.autoRearBrakeTrigger && !pauseFunction.isPaused) 
             {
                 if (!onSceneLoad) 
                 {
@@ -234,7 +218,7 @@ public class textTriggers : MonoBehaviour
             }
 
             //cross traffic text HERE
-            if (safteyFeature.crossTrafficTrigger) 
+            if (safteyFeature.crossTrafficTrigger && !pauseFunction.isPaused) 
             {
                 if(!activateFirstText) 
                 {
@@ -275,6 +259,37 @@ public class textTriggers : MonoBehaviour
             //print(scTimer);
         }
         
-        
+    }
+
+    public void nextTextEvent()
+    {
+        if (!tutorialOnce && tutorialNext == 3)
+        {
+            steeringWheelText.gameObject.SetActive(false);
+            steeringArrow.gameObject.SetActive(false);
+            tutorialTextBG.gameObject.SetActive(false);
+            tutorialNextButton.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+            tutorialtTimer = 0;
+            tutorialOnce = true;
+            tutorialNext = 0;
+        }
+        if (!tutorialOnce && tutorialNext == 2)
+        {
+            brakeGasArrow.gameObject.SetActive(false);
+            brakeGasText.gameObject.SetActive(false);
+            steeringWheelText.gameObject.SetActive(true);
+            steeringArrow.gameObject.SetActive(true);
+            tutorialNext = 3;
+        }
+        if (!tutorialOnce && tutorialNext == 1) 
+        {
+            gearText.gameObject.SetActive(false);
+            gearArrow.gameObject.SetActive(false);
+            brakeGasArrow.gameObject.SetActive(true);
+            brakeGasText.gameObject.SetActive(true);
+            tutorialNext = 2;
+        }
+
     }
 }
