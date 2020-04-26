@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\AI\laneChangeCar.cs" />
     <Compile Include="Assets\Scripts\AI\randomSpawn.cs" />
     <Compile Include="Assets\Scripts\AI\simpleMoveForward.cs" />
+    <Compile Include="Assets\Scripts\AI\spawnAI.cs" />
+    <Compile Include="Assets\Scripts\AI\wheelTurn.cs" />
     <Compile Include="Assets\Scripts\enviornment\backToOrigin.cs" />
     <Compile Include="Assets\Scripts\enviornment\laneTracking.cs" />
     <Compile Include="Assets\Scripts\enviornment\loadLevelScene.cs" />

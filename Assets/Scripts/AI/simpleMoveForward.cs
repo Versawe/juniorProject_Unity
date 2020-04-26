@@ -5,19 +5,26 @@ using UnityEngine;
 public class simpleMoveForward : MonoBehaviour
 {
 
-    public float speed;
+    private float speed = 1000;
 
     Rigidbody rb;
+
+    public GameObject userCar;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        userCar = GameObject.Find("carPrefabCTA");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.forward *= speed;
+        Physics.IgnoreLayerCollision(10,11);
+        rb.velocity = transform.forward * speed * Time.deltaTime;
+
     }
 }
