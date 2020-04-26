@@ -592,6 +592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda035e46ceb43c4d923fbc511c95b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnCar: {fileID: 1718916633933137263, guid: 9f823e45996e1b540b9b6aa0cfce3bac,
+    type: 3}
+  spawnLoc: {fileID: 5088933286912322172}
 --- !u!1 &4758230051884732481
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +919,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda035e46ceb43c4d923fbc511c95b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnCar: {fileID: 1718916633933137263, guid: 9f823e45996e1b540b9b6aa0cfce3bac,
+    type: 3}
+  spawnLoc: {fileID: 7278125134372019923}
 --- !u!1 &7599403497393623607
 GameObject:
   m_ObjectHideFlags: 0

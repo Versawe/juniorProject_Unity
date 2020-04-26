@@ -5,11 +5,13 @@ using UnityEngine;
 public class simpleMoveForward : MonoBehaviour
 {
 
-    private float speed = 1000;
+    private float speed;
 
     Rigidbody rb;
 
     public GameObject userCar;
+
+    private float randomSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,10 @@ public class simpleMoveForward : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         userCar = GameObject.Find("carPrefabCTA");
+
+        randomSpeed = Random.Range(900, 1500);
+
+        speed = randomSpeed;
         
     }
 
@@ -25,6 +31,15 @@ public class simpleMoveForward : MonoBehaviour
     {
         Physics.IgnoreLayerCollision(10,11);
         rb.velocity = transform.forward * speed * Time.deltaTime;
+
+        if (transform.position.z > userCar.transform.position.z + 280) 
+        {
+            Destroy(gameObject);
+        }
+        if (transform.position.z < userCar.transform.position.z - 280)
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

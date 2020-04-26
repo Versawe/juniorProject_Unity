@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0041775, y: 1.401917, z: 1.1804938}
-  m_Center: {x: -0.006379366, y: 0.5319946, z: -0.04502502}
+  m_Size: {x: 1.2645824, y: 1.401917, z: 1.1804938}
+  m_Center: {x: -0.059505783, y: 0.5319946, z: -0.04502499}
 --- !u!54 &1718916633933137296
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ Rigidbody:
   m_Mass: 100
   m_Drag: 5
   m_AngularDrag: 5
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72662a56d8036544892142c17a10f990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userCar: {fileID: 0}
 --- !u!1 &2906000615746403030
 GameObject:
   m_ObjectHideFlags: 0
