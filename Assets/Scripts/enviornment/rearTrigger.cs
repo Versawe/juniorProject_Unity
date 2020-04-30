@@ -15,8 +15,8 @@ public class rearTrigger : MonoBehaviour
     private int blinkCountLeft = 0;
     private int switchOnAndOffRight = 0;
     private int switchOnAndOffLeft = 0;
-    private bool uiCrossTrafficRightActive = false;
-    private bool uiCrossTrafficleftActive = false;
+    //private bool uiCrossTrafficRightActive = false;
+    //private bool uiCrossTrafficleftActive = false;
     public GameObject uiCrossTrafficRight;
     public GameObject uiCrossTrafficLeft;
     public GameObject playerCar;

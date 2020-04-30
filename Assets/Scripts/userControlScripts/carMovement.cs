@@ -30,6 +30,8 @@ public class carMovement : MonoBehaviour
         {
             maxSpeed = 1800;
         }
+
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
