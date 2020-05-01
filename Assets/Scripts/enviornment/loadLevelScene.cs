@@ -7,13 +7,11 @@ using TMPro;
 
 public class loadLevelScene : MonoBehaviour
 {
-    public TextMeshProUGUI loadingShadow;
     public TextMeshProUGUI loadingText;
 
     // Start is called before the first frame update
     void Start()
     {
-        loadingShadow.gameObject.SetActive(false);
         loadingText.gameObject.SetActive(false);
     }
 
@@ -53,7 +51,6 @@ public class loadLevelScene : MonoBehaviour
 
     public void loadingScene()
     {
-        loadingShadow.gameObject.SetActive(true);
         loadingText.gameObject.SetActive(true);
     }
 

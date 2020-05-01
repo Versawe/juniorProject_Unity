@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 2dc97c5eb9c77e64c97d838c237b9ae3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cadillac Sans A
+  fontNames:
+  - Cadillac Sans A
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: faccd010b83feb34fb26bca8531740c0, type: 3}
+  - {fileID: 12800000, guid: 7a2cffb0dcdf28e49be463ab43215a08, type: 3}
+  - {fileID: 12800000, guid: c27de2c2f468f9549b639893215a47ab, type: 3}
+  - {fileID: 12800000, guid: 52de2715d949d434690ff7707abb9d81, type: 3}
+  - {fileID: 12800000, guid: 54fa2bd5431a9a44c921d8d4ec580faf, type: 3}
+  - {fileID: 12800000, guid: 10a6e428f8b99664e83b9ea72bcaf486, type: 3}
+  - {fileID: 12800000, guid: acd548ba2085f7f419337298112c142b, type: 3}
+  - {fileID: 12800000, guid: 55b1c61c09a9edc4b833a376ec3442eb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
