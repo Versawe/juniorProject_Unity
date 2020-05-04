@@ -133,12 +133,12 @@ PrefabInstance:
         type: 3}
       propertyPath: driversWheel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3286766468481736124}
     - target: {fileID: 337520086241609280, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
       propertyPath: carBody
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3286766467219889685}
     - target: {fileID: 553268132147640373, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
