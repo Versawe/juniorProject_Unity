@@ -4,40 +4,54 @@ public class followGyro : MonoBehaviour
 {
     // Start is called before the first frame update
     [Header("Tweaks")]
-    [SerializeField] private Quaternion baseRotation = new Quaternion(0,0,0,0);
+    [SerializeField] private Quaternion baseRotation = new Quaternion(0,0,1,0);
     private Quaternion deviceRotation;
     private Quaternion deviceRotationLast;
     private Quaternion differencePerFrame;
     private Quaternion currentRotation;
+    private Quaternion rotationActual;
     private Quaternion initialRotation;
     private Quaternion initialRotationOnStart;
+    private int method = 0;
     private bool hasRecordedInitialRotation = false;
 
     private void Start()
     {
         gyroManager.Instance.EnableGyro();
-        initialRotation = transform.localRotation;
+        /*
+        if(gyroManager.CheckGyroActive() == true)
+        {
+            method = 0;
+        }
+
+        if (gyroManager.CheckGyroActive() == false)
+        {
+            method = 1;
+        }
+        */
+        switch (method)
+        {
+            case 0:
+                currentRotation = Quaternion.Euler(90, 125, 0);
+                break;
+            case 1:
+                currentRotation = Quaternion.Euler(0, 0, 0);
+                break;
+        }
     }
 
     private void Update()
     {
-        currentRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
-
-        transform.localRotation = initialRotation * currentRotation;
-        print(initialRotation);
-        /*
-        if(hasRecordedInitialRotation == false)
+        if(method == 0)
         {
-            currentRotation = transform.localRotation * new Quaternion(0,0,0,1);
-        }
-        
-        deviceRotationLast = deviceRotation;
-        deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
-        differencePerFrame = deviceRotationLast * Quaternion.Inverse(deviceRotation);
-        currentRotation = currentRotation * differencePerFrame;
+            deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
 
-        transform.localRotation = currentRotation;
-        */
-        //print(gyroManager.Instance.GetGyroRotation());
+            transform.localRotation = currentRotation * deviceRotation;
+        }
+
+        if (method == 1)
+        {
+            transform.localRotation = currentRotation;
+        }
     }
 }

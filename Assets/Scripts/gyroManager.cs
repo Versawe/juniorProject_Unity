@@ -29,7 +29,7 @@ public class gyroManager : MonoBehaviour
     [Header("Logic")]
     private Gyroscope gyro;
     private Quaternion rotation;
-    private bool gyroActive;
+    private static bool gyroActive;
 
     public void EnableGyro()
     {
@@ -56,5 +56,9 @@ public class gyroManager : MonoBehaviour
     public Quaternion GetGyroRotation()
     {
         return rotation;
+    }
+    public static bool CheckGyroActive()
+    {
+        return gyroActive;
     }
 }
