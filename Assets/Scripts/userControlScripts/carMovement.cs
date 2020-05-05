@@ -162,16 +162,24 @@ public class carMovement : MonoBehaviour
 
     public void OnBrakeDown()
     {
+
+        if (!superCruise.superCruiseActive) 
+        {
+            //run if holding brake pedal
+            brakePressing = true;
+        }
         
-        //run if holding brake pedal
-        brakePressing = true;
         
         
     }
 
     public void OnBrakeUp()
     {
-        //run if release from brake pedal
-        brakePressing = false;
+        if (!superCruise.superCruiseActive) 
+        {
+            //run if release from brake pedal
+            brakePressing = false;
+        }
+        
     }
 }
