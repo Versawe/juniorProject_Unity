@@ -26,23 +26,21 @@ public class followGyro : MonoBehaviour
         {
             method = 1;
         }
-        /*switch (method)
+        switch (method)
         {
             case 0:
-                currentRotation = Quaternion.Euler(90, 125, 0);
+                currentRotation = Quaternion.Euler(90, 90, 0);
+                deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
+                rotDifX = currentRotation.x - deviceRotation.x;
+                rotDifY = currentRotation.y - deviceRotation.y;
+                rotDifZ = currentRotation.z - deviceRotation.z;
+
+                differenceFromCenter = Quaternion.Euler(rotDifX, rotDifY, rotDifZ);
                 break;
             case 1:
                 currentRotation = Quaternion.Euler(0, 0, 0);
                 break;
         }
-        */
-        currentRotation = Quaternion.Euler(90, -90, 0);
-        deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
-        rotDifX = currentRotation.x - deviceRotation.x;
-        rotDifY = currentRotation.y - deviceRotation.y;
-        rotDifZ = currentRotation.z - deviceRotation.z;
-
-        differenceFromCenter = Quaternion.Euler(rotDifX,rotDifY,rotDifZ);
     }
 
     private void Update()
