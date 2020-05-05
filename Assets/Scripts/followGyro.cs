@@ -5,15 +5,14 @@ public class followGyro : MonoBehaviour
     // Start is called before the first frame update
     [Header("Tweaks")]
     [SerializeField] private Quaternion baseRotation = new Quaternion(0,0,1,0);
-    private Quaternion deviceRotation;
-    private Quaternion deviceRotationLast;
-    private Quaternion differencePerFrame;
     private Quaternion currentRotation;
-    private Quaternion rotationActual;
-    private Quaternion initialRotation;
+    private Quaternion differenceFromCenter;
+    private float rotDifX;
+    private float rotDifY;
+    private float rotDifZ;
     private Quaternion initialRotationOnStart;
+    private Quaternion deviceRotation;
     private int method = 0;
-    private bool hasRecordedInitialRotation = false;
 
     private void Start()
     {
@@ -37,8 +36,15 @@ public class followGyro : MonoBehaviour
             case 1:
                 currentRotation = Quaternion.Euler(0, 0, 0);
                 break;
-        }*/
-        currentRotation = Quaternion.Euler(90, 90, 0);
+        }
+        */
+        currentRotation = Quaternion.Euler(90, -60, 0);
+        deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
+        rotDifX = currentRotation.x - deviceRotation.x;
+        rotDifY = currentRotation.y - deviceRotation.y;
+        rotDifZ = currentRotation.z - deviceRotation.z;
+
+        differenceFromCenter = Quaternion.Euler(rotDifX,rotDifY,rotDifZ);
     }
 
     private void Update()
