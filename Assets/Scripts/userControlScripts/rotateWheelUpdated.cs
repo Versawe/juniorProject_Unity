@@ -51,6 +51,7 @@ public class rotateWheelUpdated : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f; // keep this
         rectTrans = GetComponent<RectTransform>();
         turnLimit = 0;
 

@@ -26,8 +26,8 @@ public class textTriggers : MonoBehaviour
     public TextMeshProUGUI scText4;
     public Image scTextBG;
     public Button scNextButton;
-    public Button scNewButton;
-    public Image scNewBG;
+    //public Button scNewButton;
+    //public Image scNewBG;
 
 
     //rearBrake UI
@@ -37,8 +37,8 @@ public class textTriggers : MonoBehaviour
     public TextMeshProUGUI rbText3;
     public Image rbTextBG;
     public Button rbNextButton;
-    public Button rbNewButton;
-    public Image rbNewBG;
+    //public Button rbNewButton;
+    //public Image rbNewBG;
 
     //crossTraffic UI
     public GameObject crossTrafficMain;
@@ -145,15 +145,15 @@ public class textTriggers : MonoBehaviour
                     {
                         Time.timeScale = 0.05f;
                         scText2.gameObject.SetActive(true);
-                        scNewButton.gameObject.SetActive(true);
-                        scNewBG.gameObject.SetActive(true);
+                        scNextButton.gameObject.SetActive(true);
+                        scTextBG.gameObject.SetActive(true);
                     }
                     if (scNext == 2 && !firstActivated2)
                     {
                         Time.timeScale = 1f;
                         scText2.gameObject.SetActive(false);
-                        scNewButton.gameObject.SetActive(false);
-                        scNewBG.gameObject.SetActive(false);
+                        scNextButton.gameObject.SetActive(false);
+                        scTextBG.gameObject.SetActive(false);
                         scTimer = 0;
                         firstActivated2 = true;
                     }
@@ -166,29 +166,29 @@ public class textTriggers : MonoBehaviour
                     {
                         Time.timeScale = 0.05f;
                         scText3.gameObject.SetActive(true);
-                        scNewButton.gameObject.SetActive(true);
-                        scNewBG.gameObject.SetActive(true);
+                        scNextButton.gameObject.SetActive(true);
+                        scTextBG.gameObject.SetActive(true);
                     }
                     if (scNext == 3)
                     {
                         Time.timeScale = 1f;
                         scText3.gameObject.SetActive(false);
-                        scNewButton.gameObject.SetActive(false);
-                        scNewBG.gameObject.SetActive(false);
+                        scNextButton.gameObject.SetActive(false);
+                        scTextBG.gameObject.SetActive(false);
                     }
                     if (scNext == 3)
                     {
                         Time.timeScale = 0.05f;
                         scText4.gameObject.SetActive(true);
-                        scNewButton.gameObject.SetActive(true);
-                        scNewBG.gameObject.SetActive(true);
+                        scNextButton.gameObject.SetActive(true);
+                        scTextBG.gameObject.SetActive(true);
                     }
                     if (scNext == 4)
                     {
                         Time.timeScale = 1f;
                         scText4.gameObject.SetActive(false);
-                        scNewButton.gameObject.SetActive(false);
-                        scNewBG.gameObject.SetActive(false);
+                        scNextButton.gameObject.SetActive(false);
+                        scTextBG.gameObject.SetActive(false);
                         scTimerOff = true;
                     }
 
@@ -210,8 +210,8 @@ public class textTriggers : MonoBehaviour
                 {
                     Time.timeScale = 0.05f;
                     rbText1.gameObject.SetActive(true);
-                    rbNewButton.gameObject.SetActive(true);
-                    rbNewBG.gameObject.SetActive(true);
+                    rbNextButton.gameObject.SetActive(true);
+                    rbTextBG.gameObject.SetActive(true);
                 }
                 if (onSceneLoad && firstBraked) 
                 {
@@ -221,8 +221,8 @@ public class textTriggers : MonoBehaviour
                 {
                     Time.timeScale = 0.05f;
                     rbText2.gameObject.SetActive(true);
-                    rbNewButton.gameObject.SetActive(true);
-                    rbNewBG.gameObject.SetActive(true);
+                    rbNextButton.gameObject.SetActive(true);
+                    rbTextBG.gameObject.SetActive(true);
                     rbNext = 2;
                 }
                 if (firstBraked && onSceneLoad && rbNext == 3)
@@ -312,16 +312,16 @@ public class textTriggers : MonoBehaviour
                 {
                     Time.timeScale = 1f;
                     rbText2.gameObject.SetActive(false);
-                    rbNewButton.gameObject.SetActive(false);
-                    rbNewBG.gameObject.SetActive(false);
+                    rbNextButton.gameObject.SetActive(false);
+                    rbTextBG.gameObject.SetActive(false);
                     rbNext = 3;
                 }
                 if (!onSceneLoad && rbNext == 0)
                 {
                     Time.timeScale = 1f;
                     rbText1.gameObject.SetActive(false);
-                    rbNewButton.gameObject.SetActive(false);
-                    rbNewBG.gameObject.SetActive(false);
+                    rbNextButton.gameObject.SetActive(false);
+                    rbTextBG.gameObject.SetActive(false);
                     onSceneLoad = true;
                     rbTimer = 0;
                     rbNext = 1;
