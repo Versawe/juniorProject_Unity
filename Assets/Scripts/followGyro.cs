@@ -29,7 +29,7 @@ public class followGyro : MonoBehaviour
             method = 1;
         }
         */
-        switch (method)
+        /*switch (method)
         {
             case 0:
                 currentRotation = Quaternion.Euler(90, 125, 0);
@@ -37,7 +37,8 @@ public class followGyro : MonoBehaviour
             case 1:
                 currentRotation = Quaternion.Euler(0, 0, 0);
                 break;
-        }
+        }*/
+        currentRotation = Quaternion.Euler(90, 90, 0);
     }
 
     private void Update()
@@ -47,6 +48,7 @@ public class followGyro : MonoBehaviour
             deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
 
             transform.localRotation = currentRotation * deviceRotation;
+            //transform.localRotation = deviceRotation;
         }
 
         if (method == 1)
