@@ -20,7 +20,7 @@ public class simpleMoveForward : MonoBehaviour
 
         userCar = GameObject.Find("carPrefabCTA");
 
-        randomSpeed = Random.Range(900, 1500);
+        randomSpeed = Random.Range(750, 950);
 
         speed = randomSpeed;
         

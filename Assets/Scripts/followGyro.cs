@@ -17,17 +17,15 @@ public class followGyro : MonoBehaviour
     private void Start()
     {
         gyroManager.Instance.EnableGyro();
-        /*
-        if(gyroManager.CheckGyroActive() == true)
+        if(gyroManager.Instance.CheckGyroActive() == true)
         {
             method = 0;
         }
 
-        if (gyroManager.CheckGyroActive() == false)
+        if (gyroManager.Instance.CheckGyroActive() == false)
         {
             method = 1;
         }
-        */
         /*switch (method)
         {
             case 0:
@@ -38,7 +36,7 @@ public class followGyro : MonoBehaviour
                 break;
         }
         */
-        currentRotation = Quaternion.Euler(90, -60, 0);
+        currentRotation = Quaternion.Euler(90, -90, 0);
         deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
         rotDifX = currentRotation.x - deviceRotation.x;
         rotDifY = currentRotation.y - deviceRotation.y;
@@ -54,7 +52,6 @@ public class followGyro : MonoBehaviour
             deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
 
             transform.localRotation = currentRotation * deviceRotation;
-            //transform.localRotation = deviceRotation;
         }
 
         if (method == 1)

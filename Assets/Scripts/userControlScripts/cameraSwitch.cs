@@ -8,7 +8,13 @@ public class cameraSwitch : MonoBehaviour
     public GameObject cameraReverse;
     public GameObject cameraActual;
     public GameObject screen;
+    private Quaternion cameraActualRot;
+    private Quaternion cameraReverseRot;
+    private Quaternion cameraDriveRot;
+    private Quaternion targetRot;
     private Vector3 targetLocation;
+    float speed = .01f;
+    float progress;
     private float xRot;
     private float yRot;
     private float zRot;
@@ -31,10 +37,14 @@ public class cameraSwitch : MonoBehaviour
     void Update()
     {
         Vector3 cameraCurrentLocation = cameraActual.transform.position;
+        cameraActualRot = cameraActual.transform.rotation;
+        cameraReverseRot = cameraReverse.transform.rotation;
+        cameraDriveRot = cameraDrive.transform.rotation;
+        /*
         xRot = cameraActual.transform.eulerAngles.x;
         yRot = cameraActual.transform.eulerAngles.y;
         zRot = cameraActual.transform.eulerAngles.z;
-
+        */
 
         if (!gearShifterScript.inReverse && gearShifterScript.inDrive) 
         {
@@ -60,9 +70,12 @@ public class cameraSwitch : MonoBehaviour
             cameraActual.transform.rotation = cameraTarget.transform.rotation;
             */
             targetLocation = cameraReverse.transform.position;
+            targetRot = cameraReverseRot;
+            /*
             xRotTarget = cameraReverse.transform.eulerAngles.x;
             yRotTarget = cameraReverse.transform.eulerAngles.y;
             zRotTarget = cameraReverse.transform.eulerAngles.z;
+            */
             screen.SetActive(true);
         }
 
@@ -73,28 +86,39 @@ public class cameraSwitch : MonoBehaviour
             cameraActual.transform.rotation = cameraPOV.transform.rotation;
             */
             targetLocation = cameraDrive.transform.position;
-            xRotTarget = cameraDrive.transform.eulerAngles.x;
-            yRotTarget = cameraDrive.transform.eulerAngles.y;
-            zRotTarget = cameraDrive.transform.eulerAngles.z;
+            targetRot = cameraDriveRot;
+            /*
+            xRotTarget = cameraReverse.transform.eulerAngles.x;
+            yRotTarget = cameraReverse.transform.eulerAngles.y;
+            zRotTarget = cameraReverse.transform.eulerAngles.z;
+            */
             screen.SetActive(false);
         }
 
-        cameraCurrentLocation.x = Transition(cameraCurrentLocation.x, targetLocation.x, 5f);
-        cameraCurrentLocation.y = Transition(cameraCurrentLocation.y, targetLocation.y, 5f);
-        cameraCurrentLocation.z = Transition(cameraCurrentLocation.z, targetLocation.z, 5f);
         /*
         xRot = Transition(xRot, xRotTarget, 5);
         yRot = Transition(yRot, yRotTarget, 5);
         zRot = Transition(zRot, zRotTarget, 5);
         */
+        /*
         xRot = xRotTarget;
         yRot = yRotTarget;
         zRot = zRotTarget;
+        */
 
         //print(xRot);
 
+        cameraCurrentLocation.x = Transition(cameraCurrentLocation.x, targetLocation.x, 5f);
+        cameraCurrentLocation.y = Transition(cameraCurrentLocation.y, targetLocation.y, 5f);
+        cameraCurrentLocation.z = Transition(cameraCurrentLocation.z, targetLocation.z, 5f);
+        
+        progress += speed * Time.deltaTime;
+        progress = Mathf.Clamp01(progress);
+
+        cameraActual.transform.rotation = Quaternion.Lerp(cameraActualRot, targetRot, progress);
+        //cameraActual.transform.rotation = cameraActualRot;
+
         cameraActual.transform.position = cameraCurrentLocation;
-        cameraActual.transform.rotation = Quaternion.Euler(xRot, yRot, zRot);
     }
 
     public float Transition(float startValue, float endValue, float speed)
