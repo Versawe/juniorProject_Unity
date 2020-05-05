@@ -78,7 +78,7 @@ public class textTriggers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -93,7 +93,7 @@ public class textTriggers : MonoBehaviour
             
             if (tutorialtTimer > 3) 
             {
-                Time.timeScale = 0.05f;
+                //Time.timeScale = 0.05f;
             }
             if (tutorialtTimer >= 3f && tutorialtTimer < 3.01f) 
             {
@@ -117,7 +117,7 @@ public class textTriggers : MonoBehaviour
                     scTimer += 1 * Time.deltaTime;
                     if (scTimer > 3f && scTimer < 3.05f)
                     {
-                        Time.timeScale = 0.05f;
+                        //Time.timeScale = 0.05f;
                         scText1.gameObject.SetActive(true);
                         scArrow.gameObject.SetActive(true);
                         scNextButton.gameObject.SetActive(true);
@@ -143,7 +143,7 @@ public class textTriggers : MonoBehaviour
                     }
                     if (firstActivated && scTimer > 1f && scTimer < 1.05f)
                     {
-                        Time.timeScale = 0.05f;
+                        //Time.timeScale = 0.05f;
                         scText2.gameObject.SetActive(true);
                         scNextButton.gameObject.SetActive(true);
                         scTextBG.gameObject.SetActive(true);
@@ -164,7 +164,7 @@ public class textTriggers : MonoBehaviour
                     scTimer += 1 * Time.deltaTime;
                     if (scTimer > 1f && scTimer < 1.05f) 
                     {
-                        Time.timeScale = 0.05f;
+                        //Time.timeScale = 0.05f;
                         scText3.gameObject.SetActive(true);
                         scNextButton.gameObject.SetActive(true);
                         scTextBG.gameObject.SetActive(true);
@@ -178,7 +178,7 @@ public class textTriggers : MonoBehaviour
                     }
                     if (scNext == 3)
                     {
-                        Time.timeScale = 0.05f;
+                        //Time.timeScale = 0.05f;
                         scText4.gameObject.SetActive(true);
                         scNextButton.gameObject.SetActive(true);
                         scTextBG.gameObject.SetActive(true);
@@ -208,7 +208,7 @@ public class textTriggers : MonoBehaviour
                 }
                 if (!onSceneLoad && rbTimer >= 3f && rbTimer <= 3.01f) 
                 {
-                    Time.timeScale = 0.05f;
+                    //Time.timeScale = 0.05f;
                     rbText1.gameObject.SetActive(true);
                     rbNextButton.gameObject.SetActive(true);
                     rbTextBG.gameObject.SetActive(true);
@@ -219,7 +219,7 @@ public class textTriggers : MonoBehaviour
                 }
                 if (firstBraked && onSceneLoad && rbTimer >= 1f && rbTimer < 1.05f) 
                 {
-                    Time.timeScale = 0.05f;
+                    //Time.timeScale = 0.05f;
                     rbText2.gameObject.SetActive(true);
                     rbNextButton.gameObject.SetActive(true);
                     rbTextBG.gameObject.SetActive(true);
@@ -227,7 +227,7 @@ public class textTriggers : MonoBehaviour
                 }
                 if (firstBraked && onSceneLoad && rbNext == 3)
                 {
-                    Time.timeScale = 0.05f;
+                    //Time.timeScale = 0.05f;
                     rbText3.gameObject.SetActive(true);
                     rbNextButton.gameObject.SetActive(true);
                     rbTextBG.gameObject.SetActive(true);
@@ -247,7 +247,7 @@ public class textTriggers : MonoBehaviour
                 }
                 if (!activateFirstText && ctTimer >= 3f && ctTimer < 3.05f) 
                 {
-                    Time.timeScale = 0.05f;
+                    //Time.timeScale = 0.05f;
                     ctText1.gameObject.SetActive(true);
                     ctNextButton.gameObject.SetActive(true);
                     ctTextBG.gameObject.SetActive(true);
@@ -268,7 +268,7 @@ public class textTriggers : MonoBehaviour
                 }
                 if (activateSecondText && ctTimer >= 1f && ctTimer < 1.05f)
                 {
-                    Time.timeScale = 0.05f;
+                    //Time.timeScale = 0.05f;
                     ctText2.gameObject.SetActive(true);
                     ctNextButton.gameObject.SetActive(true);
                     ctTextBG.gameObject.SetActive(true);

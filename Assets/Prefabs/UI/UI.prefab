@@ -3425,7 +3425,6 @@ GameObject:
   - component: {fileID: 5398920089822122680}
   - component: {fileID: 5398920089822122686}
   - component: {fileID: 5398920089822122681}
-  - component: {fileID: 5398920089822122684}
   - component: {fileID: 5398920089822122687}
   - component: {fileID: 337520086241609280}
   m_Layer: 5
@@ -3490,22 +3489,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5398920089822122684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5398920089822122683}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff5b7e5a72c4d148b8d9d279a7398de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heldDown: 0
-  wheel: {fileID: 5398920089822122680}
-  driversWheel: {fileID: 0}
-  carBody: {fileID: 0}
 --- !u!114 &5398920089822122687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3523,7 +3506,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5398920089822122684}
+        - m_Target: {fileID: 337520086241609280}
           m_MethodName: OnTouchExit
           m_Mode: 1
           m_Arguments:
@@ -3538,7 +3521,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5398920089822122684}
+        - m_Target: {fileID: 337520086241609280}
           m_MethodName: OnTouchDown
           m_Mode: 1
           m_Arguments:
@@ -3895,16 +3878,12 @@ MonoBehaviour:
   scText4: {fileID: 4184953100607747017}
   scTextBG: {fileID: 7192106466833048568}
   scNextButton: {fileID: 6356122758792614097}
-  scNewButton: {fileID: 0}
-  scNewBG: {fileID: 0}
   rearBrakeMain: {fileID: 4947012969872817222}
   rbText1: {fileID: 1049069204602804580}
   rbText2: {fileID: 2388258115764573058}
   rbText3: {fileID: 2950459369158794009}
   rbTextBG: {fileID: 4965913720599530023}
   rbNextButton: {fileID: 3304194201449604375}
-  rbNewButton: {fileID: 0}
-  rbNewBG: {fileID: 0}
   crossTrafficMain: {fileID: 4547427469054576031}
   ctText1: {fileID: 1545591044315977996}
   ctText2: {fileID: 1109717770046201579}
