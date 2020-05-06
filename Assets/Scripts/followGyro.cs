@@ -19,9 +19,17 @@ public class followGyro : MonoBehaviour
         gyroManager.Instance.EnableGyro();
         if(gyroManager.Instance.CheckGyroActive() == true)
         {
+            //if(userWantsGyroActiveBoolean == true)
+            //{
+            //    method = 0;
+            //}
+            //if(userWantsGyroActiveBoolean == false)
+            //{
+            //    method = 1;
+            //}
+
             method = 0;
         }
-
         if (gyroManager.Instance.CheckGyroActive() == false)
         {
             method = 1;
