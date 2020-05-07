@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRotation: {x: 0, y: 0, z: 1, w: 0}
-  method: 1
 --- !u!1 &711527461542468455
 GameObject:
   m_ObjectHideFlags: 0
@@ -7041,6 +7040,7 @@ MonoBehaviour:
   player: {fileID: 3286766466898796442}
   newPrefabSpawn: {fileID: 0}
   origin: {fileID: 0}
+  gyroDude: {fileID: 711527460202147526}
 --- !u!1 &3286766467210156509
 GameObject:
   m_ObjectHideFlags: 0

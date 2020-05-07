@@ -21,20 +21,38 @@ public class safteyFeature : MonoBehaviour
         if (sceneName == "superCruiseScene")
         {
             isSuperCruise = true;
+            if (gyroOff.boolBro)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         else isSuperCruise = false;
 
         if (sceneName == "crossTrafficAlert")
         {
             crossTrafficTrigger = true;
+            if (gyroOff.boolBro)
+            {
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
         }
         else crossTrafficTrigger = false;
 
         if (sceneName == "autoRearBrake")
         {
             autoRearBrakeTrigger = true;
+            if (gyroOff.boolBro)
+            {
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
         }
         else autoRearBrakeTrigger = false;
+    }
+
+    void Update()
+    {
+        
+    
     }
 
 }

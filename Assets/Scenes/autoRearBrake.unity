@@ -16733,6 +16733,7 @@ MonoBehaviour:
   newPrefabSpawn: {fileID: 4941910232727782657, guid: 81c91ea12bddb564f8c06ea689a7c92c,
     type: 3}
   origin: {fileID: 2025386577}
+  gyroDude: {fileID: 711527460384894793}
 --- !u!1 &4941910231676270650
 GameObject:
   m_ObjectHideFlags: 0
