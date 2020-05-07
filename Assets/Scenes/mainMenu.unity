@@ -345,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77500004, y: 0.021265995}
   m_AnchorMax: {x: 0.98100007, y: 0.36457068}
-  m_AnchoredPosition: {x: 0, y: -14.639999}
+  m_AnchoredPosition: {x: 0, y: -14.640015}
   m_SizeDelta: {x: -97.5, y: 5.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268551834
@@ -526,6 +526,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 21ac8e83e0169e84b99f379c1c59b3be, type: 2}
+    - target: {fileID: -1504981713932161579, guid: a36f17e900219ae4788e0f23dee43a74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f617498dce6e04ca7c44fde2532d21, type: 2}
     - target: {fileID: -927199367670048503, guid: a36f17e900219ae4788e0f23dee43a74,
         type: 3}
       propertyPath: m_Name
@@ -1296,6 +1301,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 21ac8e83e0169e84b99f379c1c59b3be, type: 2}
+    - target: {fileID: -1504981713932161579, guid: a36f17e900219ae4788e0f23dee43a74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d67de1900c509c945869c141fdadb559, type: 2}
     - target: {fileID: -927199367670048503, guid: a36f17e900219ae4788e0f23dee43a74,
         type: 3}
       propertyPath: m_Name
@@ -1643,6 +1653,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 21ac8e83e0169e84b99f379c1c59b3be, type: 2}
+    - target: {fileID: -1504981713932161579, guid: a36f17e900219ae4788e0f23dee43a74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ddd5748740c0a55478560f1f19a2fc57, type: 2}
     - target: {fileID: -927199367670048503, guid: a36f17e900219ae4788e0f23dee43a74,
         type: 3}
       propertyPath: m_Name
@@ -1684,7 +1699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77500004, y: 0.021265995}
   m_AnchorMax: {x: 0.98100007, y: 0.36457068}
-  m_AnchoredPosition: {x: 0, y: -14.639999}
+  m_AnchoredPosition: {x: 0, y: -14.640015}
   m_SizeDelta: {x: -103.79, y: -15.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2124909907

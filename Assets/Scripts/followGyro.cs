@@ -64,5 +64,7 @@ public class followGyro : MonoBehaviour
         {
             transform.localRotation = currentRotation;
         }
+
+        print(gyroOff.boolBro);
     }
 }

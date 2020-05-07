@@ -125,7 +125,11 @@ public class carMovement : MonoBehaviour
         {
             reverseSpeed += -850 * Time.deltaTime;
         }
-
+        if (rearTrigger.isAutoBraking && brakePressing && gearShifterScript.inReverse) 
+        {
+            reverseSpeed = 0;
+        }
+        //print(reverseSpeed);
         //determines which direction user moves on reverse vs drive
         if (gearShifterScript.inDrive)
         {
@@ -212,6 +216,7 @@ public class carMovement : MonoBehaviour
                 //rotationChange = currentRotation * Quaternion.Inverse(lastRotation);
                 transform.rotation = currentRotation;
                 rotationActual = currentRotation.y / .005f;
+                textTriggers.firstWheelMovement = true;
             } else
             {
                 transform.rotation = Quaternion.Euler(0,0,0);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class rearTrigger : MonoBehaviour
 {
-    private bool isAutoBraking = false;
+    public static bool isAutoBraking = false;
 
     private bool isAlerting = false;
     private bool leftAlert = false;
@@ -26,6 +26,7 @@ public class rearTrigger : MonoBehaviour
     {
         uiCrossTrafficRight.SetActive(false);
         uiCrossTrafficLeft.SetActive(false);
+        isAutoBraking = false;
     }
 
     // Update is called once per frame
