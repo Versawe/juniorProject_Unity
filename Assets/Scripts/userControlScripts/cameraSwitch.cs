@@ -13,6 +13,7 @@ public class cameraSwitch : MonoBehaviour
     private Quaternion cameraDriveRot;
     private Quaternion targetRot;
     private Vector3 targetLocation;
+    public GameObject gyroDude;
     float speedRot = .01f;
     float progressRot;
     float speedLoc = .01f;
@@ -29,8 +30,18 @@ public class cameraSwitch : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (gyroOff.boolBro)
+        {
+            gyroDude.GetComponent<followGyro>().enabled = false;
+        }
+        else
+        {
+            gyroDude.GetComponent<followGyro>().enabled = true;
+        }
+
+
         Vector3 cameraCurrentLocation = cameraActual.transform.position;
         cameraActualRot = cameraActual.transform.rotation;
         cameraDriveRot = cameraDrive.transform.rotation;

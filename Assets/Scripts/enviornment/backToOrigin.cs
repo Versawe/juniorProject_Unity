@@ -51,14 +51,5 @@ public class backToOrigin : MonoBehaviour
             spawnLimit = 0;
 
         }
-
-        if (gyroOff.boolBro)
-        {
-            gyroDude.GetComponent<followGyro>().enabled = false;
-        }
-        else
-        {
-            gyroDude.GetComponent<followGyro>().enabled = true;
-        }
     }
 }

@@ -15890,6 +15890,7 @@ MonoBehaviour:
   cameraReverse: {fileID: 711527461192014568}
   cameraActual: {fileID: 3286766466860292178}
   screen: {fileID: 6439881230054208416}
+  gyroDude: {fileID: 711527460384894793}
 --- !u!114 &3286766467219889682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16073,6 +16074,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingForward: 0
   movingBackwards: 0
+  targetLane1: {fileID: 0}
+  targetLane2: {fileID: 0}
+  targetLane3: {fileID: 0}
+  targetLane4: {fileID: 0}
+  forwardVectorAdjust: {fileID: 0}
+  distanceBuffer: 0
 --- !u!4 &3286766468481736124
 Transform:
   m_ObjectHideFlags: 0
@@ -16724,7 +16731,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3286766467219889685}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adb4b1db7d19cd640897cc8910013a92, type: 3}
   m_Name: 

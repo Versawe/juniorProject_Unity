@@ -6817,6 +6817,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingForward: 0
   movingBackwards: 0
+  targetLane1: {fileID: 0}
+  targetLane2: {fileID: 0}
+  targetLane3: {fileID: 0}
+  targetLane4: {fileID: 0}
+  forwardVectorAdjust: {fileID: 0}
+  distanceBuffer: 0
 --- !u!1818360609 &3067585162622279226
 RotationConstraint:
   m_ObjectHideFlags: 0
@@ -6849,6 +6855,7 @@ MonoBehaviour:
   player: {fileID: 3067585162622279217}
   newPrefabSpawn: {fileID: 0}
   origin: {fileID: 0}
+  gyroDude: {fileID: 0}
 --- !u!1 &3067585163132999798
 GameObject:
   m_ObjectHideFlags: 0

@@ -853,7 +853,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: This is your steering wheel. Tap and rotate in the direction you want to
-    turn in.
+    turn in. (only in SuperCruise)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb10e3711d656dc4db4db2109a03ff6f, type: 2}
   m_sharedMaterial: {fileID: 2475883784049423092, guid: eb10e3711d656dc4db4db2109a03ff6f,
@@ -882,8 +882,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 73
+  m_firstOverflowCharacterIndex: 78
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -923,10 +923,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5952747918671032496}
-    characterCount: 81
+    characterCount: 103
     spriteCount: 0
-    spaceCount: 15
-    wordCount: 16
+    spaceCount: 18
+    wordCount: 19
     linkCount: 0
     lineCount: 4
     pageCount: 1
@@ -934,7 +934,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -3450,7 +3450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.28411993, y: 0.42900002}
-  m_AnchoredPosition: {x: 50, y: 12}
+  m_AnchoredPosition: {x: 50.00006, y: 12}
   m_SizeDelta: {x: -256.9, y: -97.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5398920089822122686
@@ -4946,7 +4946,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}

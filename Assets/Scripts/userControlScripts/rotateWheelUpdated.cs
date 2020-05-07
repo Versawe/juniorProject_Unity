@@ -70,25 +70,9 @@ public class rotateWheelUpdated : MonoBehaviour
             foreach (Touch touch in Input.touches)
             {
 
-                if (touch.position.x < Screen.width / 2 && !superCruise.superCruiseActive)
+                if (touch.position.x < Screen.width / 2 && !superCruise.superCruiseActive && !safteyFeature.autoRearBrakeTrigger && !safteyFeature.crossTrafficTrigger)
                 {
                     touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
-
-                    //steers the wheel based on finger location compared to center point of wheel
-                    /*
-                    if (touchPosition.x > centerPoint.x && turnLimit <= 1.5)
-                    {
-                        //transform.Rotate(0, 0, -178 * Time.deltaTime);
-                        rotationActual -= 178 * Time.deltaTime;
-                        //turnLimit += 1 * Time.deltaTime;
-                    }
-                    if (touchPosition.x < centerPoint.x && turnLimit >= -1.5)
-                    {
-                        //transform.Rotate(0, 0, 178 * Time.deltaTime);
-                        rotationActual += 178 * Time.deltaTime;
-                        //turnLimit += -1 * Time.deltaTime;
-                    }
-                    */
 
                     //The following code is a mess, but it handles the wheel's rotation.
                     angleOfTouchPrev = angleOfTouch;
@@ -255,6 +239,8 @@ public class rotateWheelUpdated : MonoBehaviour
         }
 
         //making car turn with lane change
+
+        /*
         if (laneLeftTurn)
         {
             if (superCruise.superCruiseActive)
@@ -283,8 +269,14 @@ public class rotateWheelUpdated : MonoBehaviour
             }
             
         }
+        */
 
-        turnLimit = -rotationActual * .0075f;
+        if(superCruise.superCruiseActive)
+        {
+            rotationActual = carMovement.getSuperCruzeRotation();
+        }
+
+        turnLimit = -rotationActual * .005f;
 
         transform.rotation = Quaternion.Euler(0, 0, rotationActual);
 
