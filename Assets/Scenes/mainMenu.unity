@@ -530,7 +530,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 51f617498dce6e04ca7c44fde2532d21, type: 2}
+      objectReference: {fileID: 2100000, guid: 96ed7d0db35735e4e87ef4c565dea39c, type: 2}
     - target: {fileID: -927199367670048503, guid: a36f17e900219ae4788e0f23dee43a74,
         type: 3}
       propertyPath: m_Name
@@ -1305,7 +1305,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: d67de1900c509c945869c141fdadb559, type: 2}
+      objectReference: {fileID: 2100000, guid: f6e9da287992637468fc93762c075e7c, type: 2}
     - target: {fileID: -927199367670048503, guid: a36f17e900219ae4788e0f23dee43a74,
         type: 3}
       propertyPath: m_Name
@@ -1657,7 +1657,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ddd5748740c0a55478560f1f19a2fc57, type: 2}
+      objectReference: {fileID: 2100000, guid: e2dfddd16614aab4489bd8d5080a70b5, type: 2}
+    - target: {fileID: -1504981713932161579, guid: a36f17e900219ae4788e0f23dee43a74,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a36f17e900219ae4788e0f23dee43a74,
         type: 3}
       propertyPath: m_Name
