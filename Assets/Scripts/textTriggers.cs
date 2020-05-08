@@ -89,7 +89,7 @@ public class textTriggers : MonoBehaviour
         //tutorial HERE
         if (!tutorialOnce && !pauseFunction.isPaused) 
         {
-            tutorialtTimer += 1 * Time.deltaTime;
+            tutorialtTimer += 1;
             
             if (tutorialtTimer > 3) 
             {
@@ -114,7 +114,7 @@ public class textTriggers : MonoBehaviour
             {
                 if (!justStarted && tutorialOnce)
                 {
-                    scTimer += 1 * Time.deltaTime;
+                    scTimer += 1;
                     if (scTimer > 3f && scTimer < 3.05f)
                     {
                         Time.timeScale = 0.05f;
@@ -139,7 +139,7 @@ public class textTriggers : MonoBehaviour
                 {
                     if (firstActivated)
                     {
-                        scTimer += 1 * Time.deltaTime;
+                        scTimer += 1;
                     }
                     if (firstActivated && scTimer > 1f && scTimer < 1.05f)
                     {
@@ -161,7 +161,7 @@ public class textTriggers : MonoBehaviour
 
                 if (firstActivated2 && firstWheelMovement)
                 {
-                    scTimer += 1 * Time.deltaTime;
+                    scTimer += 1;
                     if (scTimer > 1f && scTimer < 1.05f) 
                     {
                         Time.timeScale = 0.05f;
@@ -204,7 +204,7 @@ public class textTriggers : MonoBehaviour
             {
                 if (!onSceneLoad) 
                 {
-                    rbTimer += 1 * Time.deltaTime;
+                    rbTimer += 1;
                 }
                 if (!onSceneLoad && rbTimer >= 3f && rbTimer <= 3.01f) 
                 {
@@ -215,7 +215,7 @@ public class textTriggers : MonoBehaviour
                 }
                 if (onSceneLoad && firstBraked) 
                 {
-                    rbTimer += 1 * Time.deltaTime;
+                    rbTimer += 1;
                 }
                 if (firstBraked && onSceneLoad && rbTimer >= 1f && rbTimer < 1.05f) 
                 {
@@ -243,7 +243,7 @@ public class textTriggers : MonoBehaviour
             {
                 if(!activateFirstText && tutorialOnce) 
                 {
-                    ctTimer += 1 * Time.deltaTime;
+                    ctTimer += 1;
                 }
                 if (!activateFirstText && ctTimer >= 3f && ctTimer < 3.05f) 
                 {
@@ -264,7 +264,7 @@ public class textTriggers : MonoBehaviour
                 }
                 if (activateFirstText && activateSecondText) 
                 {
-                    ctTimer += 1 * Time.deltaTime;
+                    ctTimer += 1;
                 }
                 if (activateSecondText && ctTimer >= 1f && ctTimer < 1.05f)
                 {
