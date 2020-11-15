@@ -37,7 +37,7 @@ public class followGyro : MonoBehaviour
         switch (method)
         {
             case 0:
-                currentRotation = Quaternion.Euler(90, -90, 0);
+                currentRotation = Quaternion.Euler(90, 0, 0);
                 deviceRotation = gyroManager.Instance.GetGyroRotation() * baseRotation;
                 rotDifX = currentRotation.x - deviceRotation.x;
                 rotDifY = currentRotation.y - deviceRotation.y;

@@ -244,6 +244,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1919467339596374519, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2370442030243765277, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -552,6 +557,11 @@ PrefabInstance:
     - target: {fileID: 5398920090549766540, guid: 8a9b4ee0272a93a489709be410de035b,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398920090549766543, guid: 8a9b4ee0272a93a489709be410de035b,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5398920090620586555, guid: 8a9b4ee0272a93a489709be410de035b,

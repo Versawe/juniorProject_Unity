@@ -50,11 +50,11 @@ public class trackPlayer : MonoBehaviour
             Instantiate(nextObject, spawnPoint.position, spawnPoint.rotation);
             //print("spawned");
         }
-        /*if (player.transform.position.z > thisObject.position.z + 300)
+        if (player.transform.position.z > thisObject.position.z + 300)
         {
             Destroy(gameObject);
             //print("boom");
-        }*/
+        }
 
         /*if (player.transform.position.z > triggerBoxCollider.position.z + backToOrigin.distanceToOrigin)
         {
